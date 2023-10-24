@@ -16,7 +16,7 @@ jobs:
 
       - name: Install pnpm
         run: |
-          npm install -g pnpm
+          npm install -g pnpm@7.28.0
           pnpm install
 
       - name: Install ESLint
