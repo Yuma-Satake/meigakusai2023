@@ -3,6 +3,6 @@ import { palette } from './palette';
 import { typography } from './typography';
 
 export const theme = createTheme({
-  palette: palette,
-  typography: typography,
+  // palette: palette,
+  // typography: typography,
 });
