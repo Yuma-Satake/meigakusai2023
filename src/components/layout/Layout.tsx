@@ -12,12 +12,14 @@ const Header: FC = () => {
     <>
       <Box
         sx={{
+          position: 'sticky',
           display: {
             xs: 'block',
             sm: 'none',
           },
         }}
       >
+        <Box sx={{ height: '70px' }} />
         <MobileHeader />
       </Box>
       <Box
