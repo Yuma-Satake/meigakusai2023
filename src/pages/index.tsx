@@ -1,13 +1,5 @@
-import { Layout } from '@/components/layout/Layout';
+import HomeContent from '@/features/home/HomeContent';
 
-const Home = () => {
-  return (
-    <Layout>
-      {[...Array(100)].map((_, index) => (
-        <div key={index}>aaaa</div>
-      ))}
-    </Layout>
-  );
-};
+const HomePage = () => <HomeContent />;
 
-export default Home;
+export default HomePage;

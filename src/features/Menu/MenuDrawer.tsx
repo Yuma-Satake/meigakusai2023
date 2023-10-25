@@ -1,3 +1,4 @@
+import { PathEnum } from '@/const/PathEnum';
 import { discloserWrapper } from '@/hooks/recoilWrapper/discloserWrapper';
 import { isOpenMenuState } from '@/hooks/state/isOpenMenuState';
 import { Button, Drawer, Stack, Typography } from '@mui/material';
@@ -13,23 +14,23 @@ type MenuItemType = {
 const menuItem: MenuItemType[] = [
   {
     label: 'ホーム',
-    path: '/',
+    path: PathEnum.HOME,
   },
   {
     label: 'マップ',
-    path: '/map',
+    path: PathEnum.MAP,
   },
   {
     label: 'イベント',
-    path: '/events',
+    path: PathEnum.EVENTS,
   },
   {
     label: '模擬店一覧',
-    path: '/booths',
+    path: PathEnum.BOOTH,
   },
   {
     label: 'アクセス',
-    path: '/access',
+    path: PathEnum.ACCESS,
   },
 ];
 
@@ -39,11 +40,10 @@ export const MenuDrawer: FC = () => {
 
   return (
     <Drawer open={isOpenMenu} onClose={isOpenMenuToggle} anchor="right">
-      <Stack alignItems="flex-start" sx={{ p: 2 }}>
+      <Stack alignItems="flex-start" spacing={2} sx={{ p: 2 }}>
         {menuItem.map((item) => (
           <Button
             key={item.path}
-            variant="contained"
             onClick={() => {
               router.push(item.path);
             }}
