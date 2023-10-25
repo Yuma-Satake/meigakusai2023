@@ -2,6 +2,7 @@ import { Providers } from '@/store/Providers';
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import Script from 'next/script';
 import { FC } from 'react';
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
@@ -20,6 +21,13 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
           content="名古屋,専門学校,電気工事士,情報処理技術者,電験3種,電気主任技術者,施工管理技士,資格取得,コンピューター,IT,ゲーム,CG,映像,音響,電気,電子,通信,機械,制御,CAD"
         />
       </Head>
+      <Script
+        id="gtm"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WTWV5HZ')`,
+        }}
+      />
       <Providers>
         <Component {...pageProps} />
       </Providers>
