@@ -31,7 +31,7 @@ export const MobileHeader: FC = () => {
   };
 
   return (
-    <AppBar sx={{ p: 0.5, px: 1, bgcolor: 'white' }}>
+    <AppBar sx={{ height: '65px', p: 0.5, px: 1, bgcolor: 'white' }}>
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <MenuIconComponents
           onClick={() => {
