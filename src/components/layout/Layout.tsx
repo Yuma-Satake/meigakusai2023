@@ -2,6 +2,7 @@ import { Box } from '@mui/material';
 import { FC, ReactNode } from 'react';
 import { MobileHeader } from '../common/header/MobileHeader';
 import { MenuDrawer } from '@/features/Menu/MenuDrawer';
+import { MobileFooter } from '../common/footer/MobileFooter';
 
 type Props = {
   children: ReactNode;
@@ -13,13 +14,14 @@ const Header: FC = () => {
       <Box
         sx={{
           position: 'sticky',
+          zIndex: 10,
           display: {
             xs: 'block',
             sm: 'none',
           },
         }}
       >
-        <Box sx={{ height: '70px' }} />
+        <Box sx={{ height: '65px', bgcolor: 'white' }} />
         <MobileHeader />
       </Box>
       <Box
@@ -45,6 +47,7 @@ export const Layout: FC<Props> = ({ children }) => {
       <Header />
       <MenuDrawer />
       {children}
+      <MobileFooter />
     </>
   );
 };
