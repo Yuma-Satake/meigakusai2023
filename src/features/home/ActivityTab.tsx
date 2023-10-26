@@ -4,11 +4,7 @@ import { ImgItemType } from '@/type/ImgItemType';
 import { useRouter } from 'next/router';
 import { theme } from '@/theme/theme';
 
-type Props = {
-  content: ImgItemType[];
-};
-
-export const ActivityTab: FC<Props> = ({ content }) => {
+export const ActivityTab: FC = () => {
   const router = useRouter();
 
   return (
