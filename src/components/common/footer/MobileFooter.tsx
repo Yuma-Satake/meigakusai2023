@@ -21,11 +21,8 @@ export const MobileFooter: FC = () => {
           }}
         />
         <Box>
-          <Typography variant="body2">
-            TEL：052-681-1311 ／ FAX：052-682-3017
-            <br />
-            〒456-0031 名古屋市熱田区神宮4-7-21
-          </Typography>
+          <Typography variant="body2">TEL:052-681-1311/FAX:052-682-3017</Typography>
+          <Typography variant="body2">〒456-0031 名古屋市熱田区神宮4-7-21</Typography>
         </Box>
       </Stack>
       <Box
