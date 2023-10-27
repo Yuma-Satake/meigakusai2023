@@ -24,14 +24,14 @@ const menuItem: MenuItemType[] = [
     icon: <HomeIcon />,
   },
   {
-    label: 'イベント',
-    path: PathEnum.EVENTS,
-    icon: <FestivalIcon />,
-  },
-  {
     label: '模擬店',
     path: PathEnum.BOOTH,
     icon: <StorefrontIcon />,
+  },
+  {
+    label: 'イベント',
+    path: PathEnum.EVENTS,
+    icon: <FestivalIcon />,
   },
   {
     label: 'アクセス',

@@ -1,5 +1,5 @@
 import { Layout } from '@/components/layout/Layout';
-import { Box, Stack } from '@mui/material';
+import { Box, Button, Stack } from '@mui/material';
 import { FC, useEffect, useState } from 'react';
 import { MenuTabs } from '@/components/common/tabs/MenuTabs';
 import { TabNameEnum } from '@/const/TabNameEnum';
@@ -8,6 +8,7 @@ import { ActivityTab } from './ActivityTab';
 import { EventTab } from './EventTab';
 import { Carousel } from './Carousel';
 import { TopDayContent } from './TopDayContent';
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 
 const HomeContent: FC = () => {
   /**
@@ -25,7 +26,10 @@ const HomeContent: FC = () => {
         <Stack alignItems="center" sx={{ mt: '-50px' }}>
           <TopDayContent />
         </Stack>
-        <Box sx={{ mt: 4, mx: 3 }}>
+        <Button size="large" endIcon={<KeyboardDoubleArrowRightIcon />} sx={{ mt: 2 }}>
+          開催日程はこちら
+        </Button>
+        <Box sx={{ mt: 2, mx: 3 }}>
           <MenuTabs selectTab={selectTab} changeTab={handleChangeTab} />
         </Box>
         <Box sx={{ color: 'white' }}>
