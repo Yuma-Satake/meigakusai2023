@@ -21,7 +21,14 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
           content="名古屋,専門学校,電気工事士,情報処理技術者,電験3種,電気主任技術者,施工管理技士,資格取得,コンピューター,IT,ゲーム,CG,映像,音響,電気,電子,通信,機械,制御,CAD"
         />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+          rel="stylesheet"
+        />
       </Head>
+
       <Script
         id="gtm"
         strategy="afterInteractive"
