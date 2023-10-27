@@ -1,11 +1,19 @@
+import { isDevMode } from '@/const/env';
 import { Providers } from '@/store/Providers';
 import '@/styles/globals.css';
+import { Box, Stack, Typography } from '@mui/material';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import Image from 'next/image';
 import Script from 'next/script';
 import { FC } from 'react';
+import devqr from '@/assets/qr/devqr.png';
+import productqr from '@/assets/qr/productqr.png';
+import headerLogo from '@/assets/images/headfoot/header-logo.png';
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
+  const qrSrc = isDevMode ? devqr : productqr;
+
   return (
     <>
       <Head>
@@ -37,7 +45,42 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
         }}
       />
       <Providers>
-        <Component {...pageProps} />
+        <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+          <Stack
+            alignItems="center"
+            justifyContent="center"
+            spacing={4}
+            sx={{
+              width: '100vw',
+              height: '100vh',
+            }}
+          >
+            <Image
+              src={headerLogo}
+              alt="名学祭2023"
+              style={{
+                width: '20vw',
+                height: 'auto',
+              }}
+            />
+            <Typography variant="h6" sx={{ textAlign: 'center' }}>
+              名学祭WebサイトはPC画面に非対応です
+              <br />
+              下記のQRコードをスマホで読み取ってご覧下さい
+            </Typography>
+            <Image
+              src={qrSrc}
+              alt="スマホでサイトを読み込むためのQRコード"
+              style={{
+                width: '30vh',
+                height: '30vh',
+              }}
+            />
+          </Stack>
+        </Box>
+        <Box sx={{ display: { xs: 'block', md: 'none' } }}>
+          <Component {...pageProps} />
+        </Box>
       </Providers>
     </>
   );
