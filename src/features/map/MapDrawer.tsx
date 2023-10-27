@@ -38,8 +38,19 @@ export const MapDrawer: FC = () => {
         <Stack alignItems="center" spacing={4}>
           {mapArray.map((item) => {
             return (
-              <Stack key={item.label} spacing={0.5}>
-                <Typography variant="h6">{item.label}</Typography>
+              <Stack key={item.label} spacing={1}>
+                <Stack direction="row" justifyContent="space-between">
+                  <Typography variant="h6">{item.label}</Typography>
+                  <Button
+                    variant="outlined"
+                    size="small"
+                    onClick={() => {
+                      window.open(item.src.src);
+                    }}
+                  >
+                    大きな画像で見る
+                  </Button>
+                </Stack>
                 <Image
                   src={item.src}
                   alt={item.alt}
