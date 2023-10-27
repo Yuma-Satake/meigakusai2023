@@ -9,6 +9,7 @@ import { isOpenMenuState } from '@/hooks/state/isOpenMenuState';
 import { discloserWrapper } from '@/hooks/recoilWrapper/discloserWrapper';
 import { useRouter } from 'next/router';
 import { PathEnum } from '@/const/PathEnum';
+import { isOpenMapState } from '@/hooks/state/isOpenMapState';
 
 const MenuIconComponents: FC<{
   isDisable?: boolean;
@@ -25,20 +26,16 @@ const MenuIconComponents: FC<{
 export const MobileHeader: FC = () => {
   const router = useRouter();
   const [_, isOpenMenuToggle] = discloserWrapper(useRecoilState(isOpenMenuState));
+  const [__, isOpenMapToggle] = discloserWrapper(useRecoilState(isOpenMapState));
 
   const handlePush = (path: string) => {
     router.push(path);
   };
 
   return (
-    <AppBar sx={{ height: '65px', p: 0.5, px: 1, bgcolor: 'white' }}>
+    <AppBar sx={{ height: '65px', p: 0.5, px: 1, bgcolor: 'white', opacity: 0.85 }}>
       <Stack direction="row" justifyContent="space-between" alignItems="center">
-        <MenuIconComponents
-          onClick={() => {
-            handlePush(PathEnum.MAP);
-          }}
-          icon={<MapIcon fontSize="large" />}
-        />
+        <MenuIconComponents onClick={isOpenMapToggle} icon={<MapIcon fontSize="large" />} />
         <Button
           onClick={() => {
             handlePush(PathEnum.HOME);
