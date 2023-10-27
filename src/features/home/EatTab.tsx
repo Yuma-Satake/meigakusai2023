@@ -6,6 +6,9 @@ import { useRouter } from 'next/router';
 import { PathEnum } from '@/const/PathEnum';
 import { theme } from '@/theme/theme';
 import { challengeImgArray } from '@/assets/images/mogiten/challenge/challengeImgArray';
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+
+const FRAME_COUNT = 4;
 
 export const EatTab: FC = () => {
   const router = useRouter();
@@ -16,7 +19,7 @@ export const EatTab: FC = () => {
   const [content, setContent] = useState<ImgItemType[]>([]);
   // challengeImgArrayの中からランダムに3つを選ぶ
   useEffect(() => {
-    const randomArray = challengeImgArray.sort(() => Math.random() - 0.5).slice(0, 3);
+    const randomArray = challengeImgArray.sort(() => Math.random() - 0.5).slice(0, FRAME_COUNT);
     setContent(randomArray);
   }, []);
 
@@ -30,17 +33,21 @@ export const EatTab: FC = () => {
     >
       <Stack spacing={3} sx={{ mt: 2, mb: 5 }}>
         <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-          名学祭ではチャレンジングロッドに20店舗の飲食店が展開！
+          名学祭ではチャレンジングロッドに
+          <br />
+          20店舗の飲食店が展開！
         </Typography>
+
         <Button
           onClick={() => {
-            router.push(PathEnum.MAP);
+            router.push(PathEnum.BOOTH);
           }}
           variant="outlined"
           color="warning"
+          endIcon={<KeyboardDoubleArrowRightIcon />}
           sx={{ bgcolor: 'white' }}
         >
-          マップを見る
+          一覧を見る
         </Button>
       </Stack>
       <Stack spacing={2}>

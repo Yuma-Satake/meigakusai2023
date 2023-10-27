@@ -9,14 +9,24 @@ type Props = {
   text: string;
 };
 
+const TextItem: FC<string> = (text) => {
+  return (
+    <Grid item xs={6}>
+      <Typography
+        sx={{
+          fontWeight: 'bold',
+        }}
+      >
+        {text}
+      </Typography>
+    </Grid>
+  );
+};
+
 export const ImgWithText: FC<Props> = ({ isImgRight, imgItem, text }) => {
   return (
     <Grid container>
-      {isImgRight ? (
-        <Grid item xs={6}>
-          <Typography>{text}</Typography>
-        </Grid>
-      ) : null}
+      {isImgRight ? TextItem(text) : null}
       <Grid item xs={6}>
         <Image
           src={imgItem.src}
@@ -28,11 +38,7 @@ export const ImgWithText: FC<Props> = ({ isImgRight, imgItem, text }) => {
           }}
         />
       </Grid>
-      {!isImgRight ? (
-        <Grid item xs={6}>
-          <Typography>{text}</Typography>
-        </Grid>
-      ) : null}
+      {!isImgRight ? TextItem(text) : null}
     </Grid>
   );
 };

@@ -21,7 +21,7 @@ export const TabItem: FC<Props> = ({ isSelect, onClick, tabItem }) => {
         alignItems="center"
         spacing={1}
         sx={{
-          borderRadius: ' 10px 10px 0 0',
+          borderRadius: ' 5px 5px 0 0',
           bgcolor: bgColor,
           pt: 1.5,
           pb: 1,
@@ -30,9 +30,7 @@ export const TabItem: FC<Props> = ({ isSelect, onClick, tabItem }) => {
         }}
       >
         {icon(iconColor)}
-        <Typography sx={{ width: '5em', color: selectColor, fontWeight: 'light' }}>
-          {label}
-        </Typography>
+        <Typography sx={{ width: '5em', color: selectColor }}>{label}</Typography>
       </Stack>
     </Button>
   );

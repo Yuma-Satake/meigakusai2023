@@ -32,6 +32,8 @@ export const Carousel: FC = () => {
       src={imgList[imgListPointer]}
       alt="名学祭イメージ画像"
       style={{
+        position: 'relative',
+        zIndex: -1,
         opacity: imgOpacity,
         transitionProperty: 'opacity',
         transitionDuration: '1s',
