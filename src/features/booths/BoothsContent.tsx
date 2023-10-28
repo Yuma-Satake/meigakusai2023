@@ -4,17 +4,20 @@ import { goukan3ImgArray } from '@/assets/images/mogiten/3goukan/goukan3ImgArray
 import { goukan6ImgArray } from '@/assets/images/mogiten/6goukan/goukan6ImgArray';
 import { challengeImgArray } from '@/assets/images/mogiten/challenge/challengeImgArray';
 import { Layout } from '@/components/layout/Layout';
-import useImg, { FilterType } from '@/hooks/useImg';
+import useImg, { FilterCheckBoxType } from '@/hooks/useImg';
 import { Checkbox, FormControlLabel, Grid, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
 import { FC, useEffect, useState } from 'react';
 
-type FilterCheckBoxType = {
-  key: keyof FilterType;
-  label: string;
+const useImgInitial = {
+  goukan1: goukan1ImgArray,
+  goukan3: goukan3ImgArray,
+  goukan6: goukan6ImgArray,
+  goukan10: goukan10ImgArray,
+  challenge: challengeImgArray,
 };
 
-const filterCheckBoxList: FilterCheckBoxType[] = [
+export const filterCheckBoxList: FilterCheckBoxType[] = [
   {
     key: 'goukan1',
     label: '1号館',
@@ -36,14 +39,6 @@ const filterCheckBoxList: FilterCheckBoxType[] = [
     label: 'チャレンジングロッド',
   },
 ];
-
-const useImgInitial = {
-  goukan1: goukan1ImgArray,
-  goukan3: goukan3ImgArray,
-  goukan6: goukan6ImgArray,
-  goukan10: goukan10ImgArray,
-  challenge: challengeImgArray,
-};
 
 const BoothsContent: FC = () => {
   const { imgItemArray, filterProperty, filter } = useImg(useImgInitial);

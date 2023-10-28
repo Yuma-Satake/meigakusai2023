@@ -17,6 +17,11 @@ const initialFilterProperty: FilterType = {
   challenge: true,
 };
 
+export type FilterCheckBoxType = {
+  key: keyof FilterType;
+  label: string;
+};
+
 type Props = {
   goukan1: ImgItemType[];
   goukan3: ImgItemType[];
