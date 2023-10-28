@@ -61,11 +61,11 @@ const EventsContent: FC = () => {
           p: 3,
         }}
       >
-        <Typography variant="h6">模擬店一覧</Typography>
+        <Typography variant="h6">イベント一覧</Typography>
         <Stack sx={{ pb: 2 }}>
           {
             <FormControlLabel
-              label="全ての模擬店"
+              label="全てのイベント"
               control={<Checkbox checked={isAllChecked} onClick={handleAllChecked} />}
             />
           }
@@ -86,20 +86,35 @@ const EventsContent: FC = () => {
           })}
         </Stack>
         <Grid container>
-          {imgItemArray.map((item, index) => {
-            return (
-              <Grid item xs={6} key={item.alt + index}>
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  style={{
-                    width: '40vw',
-                    height: 'auto',
-                  }}
-                />
-              </Grid>
-            );
-          })}
+          {imgItemArray.length > 0 ? (
+            imgItemArray.map((item, index) => {
+              return (
+                <Grid item xs={6} key={item.alt + index}>
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    style={{
+                      width: '40vw',
+                      height: 'auto',
+                    }}
+                  />
+                </Grid>
+              );
+            })
+          ) : (
+            <Grid
+              item
+              xs={12}
+              sx={{
+                p: 3,
+                border: '0.5px solid black',
+                borderRadius: '5px',
+                textAlign: 'center',
+              }}
+            >
+              <Typography>対象のイベントはありません</Typography>
+            </Grid>
+          )}
         </Grid>
       </Stack>
     </Layout>

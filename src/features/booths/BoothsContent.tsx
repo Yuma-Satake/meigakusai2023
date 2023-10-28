@@ -96,20 +96,35 @@ const BoothsContent: FC = () => {
           })}
         </Stack>
         <Grid container>
-          {imgItemArray.map((item, index) => {
-            return (
-              <Grid item xs={6} key={item.alt + index}>
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  style={{
-                    width: '40vw',
-                    height: 'auto',
-                  }}
-                />
-              </Grid>
-            );
-          })}
+          {imgItemArray.length > 0 ? (
+            imgItemArray.map((item, index) => {
+              return (
+                <Grid item xs={6} key={item.alt + index}>
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    style={{
+                      width: '40vw',
+                      height: 'auto',
+                    }}
+                  />
+                </Grid>
+              );
+            })
+          ) : (
+            <Grid
+              item
+              xs={12}
+              sx={{
+                p: 3,
+                border: '0.5px solid black',
+                borderRadius: '5px',
+                textAlign: 'center',
+              }}
+            >
+              <Typography>対象の店舗はありません</Typography>
+            </Grid>
+          )}
         </Grid>
       </Stack>
     </Layout>
