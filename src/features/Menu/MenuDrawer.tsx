@@ -44,6 +44,11 @@ export const MenuDrawer: FC = () => {
   const router = useRouter();
   const [isOpenMenu, isOpenMenuToggle] = discloserWrapper(useRecoilState(isOpenMenuState));
 
+  const handleMenuClick = (path: string) => {
+    router.push(path);
+    isOpenMenuToggle();
+  };
+
   return (
     <Drawer open={isOpenMenu} onClose={isOpenMenuToggle} anchor="right" transitionDuration={400}>
       <Box sx={{ width: '70vw' }}>
@@ -61,7 +66,7 @@ export const MenuDrawer: FC = () => {
                 size="large"
                 startIcon={item.icon}
                 onClick={() => {
-                  router.push(item.path);
+                  handleMenuClick(item.path);
                 }}
               >
                 <Typography sx={{ width: '4em', textAlign: 'left' }}>{item.label}</Typography>

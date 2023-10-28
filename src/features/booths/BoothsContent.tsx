@@ -1,7 +1,8 @@
 import { Layout } from '@/components/layout/Layout';
-import { MogitenFilterType } from '@/hooks/useMogitenImg';
-import { Checkbox, FormControlLabel, Stack, Typography } from '@mui/material';
-import { FC, useState } from 'react';
+import useMogitenImg, { MogitenFilterType } from '@/hooks/useMogitenImg';
+import { Checkbox, FormControlLabel, Grid, Stack, Typography } from '@mui/material';
+import Image from 'next/image';
+import { FC, useEffect, useState } from 'react';
 
 type FilterCheckBoxType = {
   key: keyof MogitenFilterType;
@@ -31,10 +32,28 @@ const filterCheckBoxList: FilterCheckBoxType[] = [
   },
 ];
 
-const initialCheckedList = filterCheckBoxList.map(() => true);
-
 const BoothsContent: FC = () => {
-  const [checkedList, setCheckedList] = useState<boolean[]>(initialCheckedList);
+  const { imgItemArray, filterProperty, filter } = useMogitenImg();
+  const [isAllChecked, setIsAllChecked] = useState<boolean>(true);
+
+  const handleAllChecked = () => {
+    setIsAllChecked(!isAllChecked);
+    filter({
+      goukan1: !isAllChecked,
+      goukan3: !isAllChecked,
+      goukan6: !isAllChecked,
+      goukan10: !isAllChecked,
+      challenge: !isAllChecked,
+    });
+  };
+
+  // 全てのチェックボックスがチェックされているかどうか
+  useEffect(() => {
+    const isAllChecked = filterCheckBoxList.every((item) => {
+      return filterProperty[item.key];
+    });
+    setIsAllChecked(isAllChecked);
+  }, [filterProperty]);
 
   return (
     <Layout>
@@ -45,29 +64,45 @@ const BoothsContent: FC = () => {
         }}
       >
         <Typography variant="h6">模擬店一覧</Typography>
-        <Stack>
-          {filterCheckBoxList.map((item, index) => {
+        <Stack sx={{ pb: 2 }}>
+          {
+            <FormControlLabel
+              label="全ての模擬店"
+              control={<Checkbox checked={isAllChecked} onClick={handleAllChecked} />}
+            />
+          }
+          {filterCheckBoxList.map((item) => {
             return (
               <FormControlLabel
                 key={item.key}
-                control={
-                  <Checkbox
-                    checked={checkedList[index]}
-                    onClick={() => {
-                      console.log(checkedList);
-                      setCheckedList((prev) => {
-                        return prev.map((prevItem, prevIndex) => {
-                          return prevIndex === index ? !prevItem : prevItem;
-                        });
-                      });
-                    }}
-                  />
-                }
                 label={item.label}
+                control={<Checkbox checked={filterProperty[item.key]} />}
+                onClick={() => {
+                  const changeKey = item.key;
+                  filter({
+                    [changeKey]: !filterProperty[item.key],
+                  });
+                }}
               />
             );
           })}
         </Stack>
+        <Grid container>
+          {imgItemArray.map((item, index) => {
+            return (
+              <Grid item xs={6} key={item.alt + index}>
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  style={{
+                    width: '40vw',
+                    height: 'auto',
+                  }}
+                />
+              </Grid>
+            );
+          })}
+        </Grid>
       </Stack>
     </Layout>
   );
