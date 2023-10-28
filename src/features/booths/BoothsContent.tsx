@@ -1,6 +1,6 @@
 import { Layout } from '@/components/layout/Layout';
 import { MogitenFilterType } from '@/hooks/useMogitenImg';
-import { Box, Checkbox, FormControlLabel, Stack, Typography } from '@mui/material';
+import { Checkbox, FormControlLabel, Stack, Typography } from '@mui/material';
 import { FC, useState } from 'react';
 
 type FilterCheckBoxType = {

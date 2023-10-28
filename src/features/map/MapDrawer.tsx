@@ -1,8 +1,5 @@
-import { PathEnum } from '@/const/PathEnum';
 import { discloserWrapper } from '@/hooks/recoilWrapper/discloserWrapper';
-import { isOpenMenuState } from '@/hooks/state/isOpenMenuState';
-import { Box, Button, Drawer, IconButton, Stack, Typography } from '@mui/material';
-import { useRouter } from 'next/router';
+import { Box, Drawer, IconButton, Stack, Typography } from '@mui/material';
 import { FC } from 'react';
 import { useRecoilState } from 'recoil';
 import CloseIcon from '@mui/icons-material/Close';
@@ -10,6 +7,7 @@ import { isOpenMapState } from '@/hooks/state/isOpenMapState';
 import Image, { StaticImageData } from 'next/image';
 import challenging from '@/assets/images/map/challenging.jpg';
 import map from '@/assets/images/index/map.jpg';
+import ImageSearchIcon from '@mui/icons-material/ImageSearch';
 
 const mapArray: { label: string; src: StaticImageData; alt: string }[] = [
   {
@@ -39,17 +37,15 @@ export const MapDrawer: FC = () => {
           {mapArray.map((item) => {
             return (
               <Stack key={item.label} spacing={1}>
-                <Stack direction="row" justifyContent="space-between">
+                <Stack direction="row" justifyContent="space-between" alignItems="center">
                   <Typography variant="h6">{item.label}</Typography>
-                  <Button
-                    variant="outlined"
-                    size="small"
+                  <IconButton
                     onClick={() => {
                       window.open(item.src.src);
                     }}
                   >
-                    大きな画像で見る
-                  </Button>
+                    <ImageSearchIcon />
+                  </IconButton>
                 </Stack>
                 <Image
                   src={item.src}
