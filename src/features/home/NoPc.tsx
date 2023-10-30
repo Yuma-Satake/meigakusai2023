@@ -1,13 +1,12 @@
 import { FC } from 'react';
 import headerLogo from '@/assets/images/headfoot/header-logo.png';
 import { Stack, Typography } from '@mui/material';
-import Image from 'next/image';
 import devqr from '@/assets/qr/devqr.png';
 import productqr from '@/assets/qr/productqr.png';
 import { isDevMode } from '@/const/env';
 
 export const NoPc: FC = () => {
-  const qrSrc = isDevMode ? devqr : productqr;
+  const qrSrc = isDevMode ? './devqr.jpg' : './productqr.jpg';
 
   return (
     <Stack
@@ -19,9 +18,11 @@ export const NoPc: FC = () => {
         height: '100vh',
       }}
     >
-      <Image
-        src={headerLogo}
+      <img
+        src="./header-logo.png"
         alt="名学祭2023"
+        width={100}
+        height={45}
         style={{
           width: '20vw',
           height: 'auto',
@@ -32,7 +33,7 @@ export const NoPc: FC = () => {
         <br />
         下記のQRコードをスマホで読み取ってご覧下さい
       </Typography>
-      <Image
+      <img
         src={qrSrc}
         alt="スマホでサイトを読み込むためのQRコード"
         style={{

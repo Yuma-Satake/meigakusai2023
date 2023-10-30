@@ -5,8 +5,8 @@ import matcha from './matcha.jpg';
 import micromouse from './micromouse.jpg';
 
 export const goukan10EventImg: ImgItemType[] = [
-  { src: futsal, alt: 'futsal' },
-  { src: keyring, alt: 'keyring' },
-  { src: matcha, alt: 'matcha' },
-  { src: micromouse, alt: 'micromouse' },
+  { src: './futsal.jpg', alt: 'futsal' },
+  { src: './keyring.jpg', alt: 'keyring' },
+  { src: './matcha.jpg', alt: 'matcha' },
+  { src: './micromouse.jpg', alt: 'micromouse' },
 ];

@@ -12,15 +12,15 @@ import theater from './theater.jpg';
 import toyota from './toyota.jpg';
 
 export const goukan6EventImg: ImgItemType[] = [
-  { src: drone, alt: 'drone' },
-  { src: karate, alt: 'karate' },
-  { src: kick, alt: 'kick' },
-  { src: kouyukai, alt: 'kouyukai' },
-  { src: segway, alt: 'segway' },
-  { src: shimaikou, alt: 'shimaikou' },
-  { src: strike, alt: 'strike' },
-  { src: techno, alt: 'techno' },
-  { src: telecommunications, alt: 'telecommunications' },
-  { src: theater, alt: 'theater' },
-  { src: toyota, alt: 'toyota' },
+  { src: './drone.jpg', alt: 'drone' },
+  { src: './karate.jpg', alt: 'karate' },
+  { src: './kick.jpg', alt: 'kick' },
+  { src: './kouyukai.jpg', alt: 'kouyukai' },
+  { src: './segway.jpg', alt: 'segway' },
+  { src: './shimaikou.jpg', alt: 'shimaikou' },
+  { src: './strike.jpg', alt: 'strike' },
+  { src: './techno.jpg', alt: 'techno' },
+  { src: './telecommunications.jpg', alt: 'telecommunications' },
+  { src: './theater.jpg', alt: 'theater' },
+  { src: './toyota.jpg', alt: 'toyota' },
 ];

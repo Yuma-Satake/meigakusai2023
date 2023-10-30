@@ -5,7 +5,6 @@ import { useRouter } from 'next/router';
 import { PathEnum } from '@/const/PathEnum';
 import { theme } from '@/theme/theme';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
-import Image from 'next/image';
 import { boothSelectState } from '@/hooks/state/boothSelectState';
 import { useSetRecoilState } from 'recoil';
 import { goukan1ImgArray } from '@/assets/images/mogiten/1goukan/goukan1ImgArray';
@@ -66,7 +65,7 @@ export const ActivityTab: FC = () => {
         {content.map((item, index) => {
           return (
             <Grid key={item.alt + index} item xs={6}>
-              <Image
+              <img
                 src={item.src}
                 alt={item.alt}
                 style={{

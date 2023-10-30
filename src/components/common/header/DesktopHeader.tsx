@@ -1,7 +1,6 @@
 import { AppBar, Box, Button, IconButton, Stack } from '@mui/material';
 import { FC, ReactNode } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
-import Image from 'next/image';
 import Logo from '@/assets/images/headfoot/header-logo.png';
 import MapIcon from '@mui/icons-material/Map';
 import { useRecoilState } from 'recoil';
@@ -54,9 +53,10 @@ export const DesktopHeader: FC = () => {
               handlePush(PathEnum.HOME);
             }}
           >
-            <Image
-              src={Logo}
+            <img
+              src="./header-logo.png"
               alt="名学祭2023"
+              width={100}
               style={{ height: '45px', marginBottom: 1, width: 'auto' }}
             />
           </Button>

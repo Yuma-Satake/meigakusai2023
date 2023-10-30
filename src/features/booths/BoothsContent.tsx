@@ -7,7 +7,6 @@ import { Layout } from '@/components/layout/Layout';
 import { boothSelectState } from '@/hooks/state/boothSelectState';
 import useImg, { FilterCheckBoxType } from '@/hooks/useImg';
 import { Checkbox, FormControlLabel, Grid, Stack, Typography } from '@mui/material';
-import Image from 'next/image';
 import { FC, useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 
@@ -105,7 +104,7 @@ const BoothsContent: FC = () => {
             imgItemArray.map((item, index) => {
               return (
                 <Grid key={item.alt + index} item xs={6} sx={{ p: 1 }}>
-                  <Image
+                  <img
                     src={item.src}
                     alt={item.alt}
                     style={{

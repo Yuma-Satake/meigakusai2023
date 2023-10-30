@@ -1,10 +1,6 @@
-import Image from 'next/image';
 import { FC, useEffect, useState } from 'react';
-import C1 from '@/assets/images/top/C1.jpg';
-import C2 from '@/assets/images/top/C2.jpg';
-import C3 from '@/assets/images/top/C3.jpg';
 
-const imgList = [C1, C2, C3];
+const imgList = ['./C1.jpg', './C2.jpg', './C3.jpg'];
 
 export const Carousel: FC = () => {
   /**
@@ -28,7 +24,7 @@ export const Carousel: FC = () => {
     return () => clearInterval(timer);
   });
   return (
-    <Image
+    <img
       src={imgList[imgListPointer]}
       alt="名学祭イメージ画像"
       loading="lazy"

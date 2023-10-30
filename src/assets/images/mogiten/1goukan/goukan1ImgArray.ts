@@ -11,14 +11,14 @@ import no9 from '@/assets/images/mogiten/1goukan/09_165-gt1b.jpg';
 import no10 from '@/assets/images/mogiten/1goukan/10_172-ai2.jpg';
 
 export const goukan1ImgArray: ImgItemType[] = [
-  { src: no1, alt: 'no1' },
-  { src: no2, alt: 'no2' },
-  { src: no3, alt: 'no3' },
-  { src: no4, alt: 'no4' },
-  { src: no5, alt: 'no5' },
-  { src: no6, alt: 'no6' },
-  { src: no7, alt: 'no7' },
-  { src: no8, alt: 'no8' },
-  { src: no9, alt: 'no9' },
-  { src: no10, alt: 'no10' },
+  { src: './01_134-gt4a.jpg', alt: 'no1' },
+  { src: './02_135-gt1.jpg', alt: 'no2' },
+  { src: './03_143-gt2a.jpg', alt: 'no3' },
+  { src: './04_145-gc2.jpg', alt: 'no4' },
+  { src: './05_154-ct2b.jpg', alt: 'no5' },
+  { src: './06_155-v2.jpg', alt: 'no6' },
+  { src: './07_162-cc2.jpg', alt: 'no7' },
+  { src: './08_163-ct4b.jpg', alt: 'no8' },
+  { src: './09_165-gt1b.jpg', alt: 'no9' },
+  { src: './10_172-ai2.jpg', alt: 'no10' },
 ];

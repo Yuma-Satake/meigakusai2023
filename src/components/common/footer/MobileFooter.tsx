@@ -1,7 +1,6 @@
 import { Box, Stack, Typography } from '@mui/material';
 import { FC } from 'react';
 import footerLogo from '@/assets/images/headfoot/footer-logo.png';
-import Image from 'next/image';
 
 export const MobileFooter: FC = () => {
   return (
@@ -12,8 +11,8 @@ export const MobileFooter: FC = () => {
       }}
     >
       <Stack alignContent="flex-start" spacing={2} sx={{ px: 2, py: 1 }}>
-        <Image
-          src={footerLogo}
+        <img
+          src="./footer-logo.png"
           alt="名古屋工学院専門学校"
           style={{
             width: '65%',

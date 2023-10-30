@@ -6,7 +6,6 @@ import { PathEnum } from '@/const/PathEnum';
 import { theme } from '@/theme/theme';
 import { challengeImgArray } from '@/assets/images/mogiten/challenge/challengeImgArray';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
-import Image from 'next/image';
 import { useSetRecoilState } from 'recoil';
 import { boothSelectState } from '@/hooks/state/boothSelectState';
 
@@ -64,7 +63,7 @@ export const EatTab: FC = () => {
         {content.map((item, index) => {
           return (
             <Grid key={item.alt + index} item xs={6}>
-              <Image
+              <img
                 src={item.src}
                 alt={item.alt}
                 style={{
