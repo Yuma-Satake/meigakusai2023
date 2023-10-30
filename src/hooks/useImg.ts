@@ -64,7 +64,8 @@ const useImg = ({ goukan1, goukan3, goukan6, goukan10, challenge }: Props): UseI
       ...(newProperty.goukan6 ? originalImgArray.goukan6 : []),
       ...(newProperty.goukan10 ? originalImgArray.goukan10 : []),
       ...(newProperty.challenge ? originalImgArray.challenge : []),
-    ];
+    ].sort((item) => Number(item.alt.slice(-5, -4)));
+
     setImgItemArray(newItem);
     setFilterProperty(newProperty);
   };
