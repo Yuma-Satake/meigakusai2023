@@ -36,12 +36,10 @@ const ModalContent: FC = () => {
               >
                 Day{dayLabel}
               </Typography>
-              <Stack alignContent="flex-start">
-                <Typography>{dayjs(item.day).locale(ja).format('MM/DD (dd)')}</Typography>
-                <Typography>
-                  {dayjs(item.startTime).format('HH:mm')} 〜 {dayjs(item.endTime).format('HH:mm')}
-                </Typography>
-              </Stack>
+              <Typography>{dayjs(item.day).locale(ja).format('MM/DD (dd)')}</Typography>
+              <Typography>
+                {dayjs(item.startTime).format('HH:mm')} 〜 {dayjs(item.endTime).format('HH:mm')}
+              </Typography>
             </Stack>
           );
         })}
@@ -55,19 +53,19 @@ export const ScheduleModal: FC = () => {
 
   return (
     <Modal open={isOpenModal} onClose={isOpenModalToggle}>
-      <Box sx={{ ...modalStyle, width: '90vw', px: 3, pb: 3 }}>
-        <Grid container>
-          <Grid container xs={10} alignContent="center">
+      <Stack spacing={2} sx={{ ...modalStyle, width: '90vw', px: 3, pb: 3 }}>
+        <Grid container alignItems="center">
+          <Grid item xs={10} alignContent="center">
             <Typography variant="h6">名学祭2023開催日程</Typography>
           </Grid>
-          <Grid container xs={2}>
+          <Grid item xs={2}>
             <IconButton onClick={isOpenModalToggle}>
               <CloseIcon fontSize="large" />
             </IconButton>
           </Grid>
         </Grid>
         <ModalContent />
-      </Box>
+      </Stack>
     </Modal>
   );
 };

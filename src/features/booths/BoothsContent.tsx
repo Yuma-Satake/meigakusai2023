@@ -80,12 +80,10 @@ const BoothsContent: FC = () => {
       >
         <Typography variant="h6">模擬店一覧</Typography>
         <Stack sx={{ pb: 2 }}>
-          {
-            <FormControlLabel
-              label="全ての模擬店"
-              control={<Checkbox checked={isAllChecked} onClick={handleAllChecked} />}
-            />
-          }
+          <FormControlLabel
+            label="全ての模擬店"
+            control={<Checkbox checked={isAllChecked} onClick={handleAllChecked} />}
+          />
           {filterCheckBoxList.map((item) => {
             return (
               <FormControlLabel

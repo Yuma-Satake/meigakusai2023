@@ -44,10 +44,10 @@ export const EatTab: FC = () => {
         <Button
           onClick={() => {
             setBoothSelect({
-              goukan1: true,
-              goukan3: true,
-              goukan6: true,
-              goukan10: true,
+              goukan1: false,
+              goukan3: false,
+              goukan6: false,
+              goukan10: false,
               challenge: true,
             });
             router.push(PathEnum.BOOTH);
@@ -61,9 +61,9 @@ export const EatTab: FC = () => {
         </Button>
       </Stack>
       <Grid container spacing={2}>
-        {content.map((item) => {
+        {content.map((item, index) => {
           return (
-            <Grid key={item.src.toString()} item xs={6}>
+            <Grid key={item.alt + index} item xs={6}>
               <Image
                 src={item.src}
                 alt={item.alt}

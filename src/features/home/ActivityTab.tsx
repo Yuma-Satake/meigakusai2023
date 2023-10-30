@@ -25,7 +25,6 @@ export const ActivityTab: FC = () => {
   // challengeImgArrayの中からランダムに3つを選ぶ
   useEffect(() => {
     const notEatBooth = [...goukan1ImgArray, ...goukan3ImgArray, ...goukan10ImgArray];
-    console.log(notEatBooth.length);
     const randomArray = notEatBooth.sort(() => Math.random() - 0.5).slice(0, FRAME_COUNT);
     setContent(randomArray);
   }, []);
@@ -64,9 +63,9 @@ export const ActivityTab: FC = () => {
         </Button>
       </Stack>
       <Grid container spacing={2}>
-        {content.map((item) => {
+        {content.map((item, index) => {
           return (
-            <Grid key={item.src.toString()} item xs={6}>
+            <Grid key={item.alt + index} item xs={6}>
               <Image
                 src={item.src}
                 alt={item.alt}

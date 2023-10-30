@@ -10,7 +10,12 @@ const boxStyle = {
 };
 
 export const TopDayContent: FC = () => {
-  const [nowTime, setNowTime] = useState<dayjs.Dayjs>(dayjs());
+  const [nowTime, setNowTime] = useState<dayjs.Dayjs>(undefined as any);
+
+  useEffect(() => {
+    setNowTime(dayjs());
+  }, []);
+
   useEffect(() => {
     const timer = setInterval(() => {
       setNowTime(dayjs());
@@ -20,7 +25,7 @@ export const TopDayContent: FC = () => {
 
   const startTimeObj = dayjs(EVENT_DAY_INFO[0].startTime);
   const diffTypograhy = (() => {
-    if (!nowTime) return '';
+    if (!nowTime) return null;
     return (
       <Stack direction="row" alignItems="flex-end" spacing={0.5}>
         <Typography variant="h4">{Math.abs(nowTime.diff(startTimeObj, 'day'))}</Typography>
