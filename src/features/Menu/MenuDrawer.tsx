@@ -51,26 +51,36 @@ export const MenuDrawer: FC = () => {
 
   return (
     <Drawer open={isOpenMenu} onClose={isOpenMenuToggle} anchor="right" transitionDuration={400}>
-      <Box sx={{ width: '70vw' }}>
-        <Stack alignItems="flex-end">
+      <Box sx={{ width: '50vw' }}>
+        <Stack alignItems="flex-end" sx={{ mt: 0.5, mr: 1 }}>
           <IconButton onClick={isOpenMenuToggle}>
             <CloseIcon fontSize="large" />
           </IconButton>
         </Stack>
-        <Stack spacing={2} sx={{ p: 2 }}>
-          {menuItem.map((item) => {
+        <Stack sx={{ p: 1, pt: 2 }}>
+          {menuItem.map((item, index) => {
+            const border = '0.5px solid';
             return (
-              <Button
+              <Box
                 key={item.label}
-                variant="contained"
-                size="large"
-                startIcon={item.icon}
-                onClick={() => {
-                  handleMenuClick(item.path);
+                sx={{
+                  p: 1,
+                  borderTop: border,
+                  borderBottom: index === menuItem.length - 1 ? border : 'none',
                 }}
               >
-                <Typography sx={{ width: '4em', textAlign: 'left' }}>{item.label}</Typography>
-              </Button>
+                <Button
+                  size="large"
+                  startIcon={item.icon}
+                  onClick={() => {
+                    handleMenuClick(item.path);
+                  }}
+                >
+                  <Typography variant="h6" sx={{ width: '4em', textAlign: 'left' }}>
+                    {item.label}
+                  </Typography>
+                </Button>
+              </Box>
             );
           })}
         </Stack>
