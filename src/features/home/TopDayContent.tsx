@@ -58,7 +58,7 @@ export const TopDayContent: FC = () => {
         <Stack direction="row" spacing={1}>
           <Typography>{dayjs(EVENT_DAY_INFO[0].day).format('MM/DD')}</Typography>
           <Typography>〜</Typography>
-          <Typography>{dayjs(EVENT_DAY_INFO[1].day).format('MM/DD')}</Typography>
+          <Typography>{dayjs(EVENT_DAY_INFO[2].day).format('MM/DD')}</Typography>
         </Stack>
       </Stack>
     </Stack>
