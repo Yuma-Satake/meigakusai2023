@@ -3,10 +3,10 @@ import headerLogo from '@/assets/images/headfoot/header-logo.png';
 import { Stack, Typography } from '@mui/material';
 import devqr from '@/assets/qr/devqr.png';
 import productqr from '@/assets/qr/productqr.png';
-import { isDevMode } from '@/const/env';
+import { IS_DEV_MODE } from '@/const/env';
 
 export const NoPc: FC = () => {
-  const qrSrc = isDevMode ? './devqr.jpg' : './productqr.jpg';
+  const qrSrc = IS_DEV_MODE ? './devqr.png' : './productqr.png';
 
   return (
     <Stack
