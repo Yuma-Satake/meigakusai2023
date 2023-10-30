@@ -4,10 +4,12 @@ import { goukan3ImgArray } from '@/assets/images/mogiten/3goukan/goukan3ImgArray
 import { goukan6ImgArray } from '@/assets/images/mogiten/6goukan/goukan6ImgArray';
 import { challengeImgArray } from '@/assets/images/mogiten/challenge/challengeImgArray';
 import { Layout } from '@/components/layout/Layout';
+import { boothSelectState } from '@/hooks/state/boothSelectState';
 import useImg, { FilterCheckBoxType } from '@/hooks/useImg';
 import { Checkbox, FormControlLabel, Grid, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
 import { FC, useEffect, useState } from 'react';
+import { useRecoilValue } from 'recoil';
 
 const useImgInitial = {
   goukan1: goukan1ImgArray,
@@ -43,6 +45,7 @@ export const filterCheckBoxList: FilterCheckBoxType[] = [
 const BoothsContent: FC = () => {
   const { imgItemArray, filterProperty, filter } = useImg(useImgInitial);
   const [isAllChecked, setIsAllChecked] = useState<boolean>(true);
+  const boothSelectValue = useRecoilValue(boothSelectState);
 
   const handleAllChecked = () => {
     setIsAllChecked(!isAllChecked);
@@ -62,6 +65,10 @@ const BoothsContent: FC = () => {
     });
     setIsAllChecked(isAllChecked);
   }, [filterProperty]);
+
+  useEffect(() => {
+    filter(boothSelectValue);
+  }, [boothSelectValue]);
 
   return (
     <Layout>

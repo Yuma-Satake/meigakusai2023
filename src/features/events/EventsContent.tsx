@@ -1,6 +1,5 @@
 import { goukan1EventImg } from '@/assets/images/event/1goukan/goukan1EventImg';
 import { goukan6EventImg } from '@/assets/images/event/6goukan/goukan6EventImg';
-import { goukan10ImgArray } from '@/assets/images/mogiten/10goukan/goukan10ImgArray';
 import { Layout } from '@/components/layout/Layout';
 import useImg, { FilterCheckBoxType } from '@/hooks/useImg';
 import { Checkbox, FormControlLabel, Grid, Stack, Typography } from '@mui/material';
@@ -11,7 +10,7 @@ const useImgInitial = {
   goukan1: goukan1EventImg,
   goukan3: [],
   goukan6: goukan6EventImg,
-  goukan10: goukan10ImgArray,
+  goukan10: [],
   challenge: [],
 };
 

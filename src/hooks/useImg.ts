@@ -9,7 +9,7 @@ export type FilterType = {
   challenge: boolean;
 };
 
-const initialFilterProperty: FilterType = {
+export const initialFilterProperty: FilterType = {
   goukan1: true,
   goukan3: true,
   goukan6: true,

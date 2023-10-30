@@ -55,7 +55,7 @@ export const ScheduleModal: FC = () => {
 
   return (
     <Modal open={isOpenModal} onClose={isOpenModalToggle}>
-      <Box sx={{ ...modalStyle, width: '80vw', px: 3, pb: 4.5 }}>
+      <Box sx={{ ...modalStyle, width: '90vw', px: 3, pb: 3 }}>
         <Grid container>
           <Grid container xs={10} alignContent="center">
             <Typography variant="h6">名学祭2023開催日程</Typography>

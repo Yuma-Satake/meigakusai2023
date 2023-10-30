@@ -1,6 +1,5 @@
 import { Box, Button, Grid, Stack, Typography } from '@mui/material';
 import { FC, useEffect, useState } from 'react';
-import { ImgWithText } from './ImgWithText';
 import { ImgItemType } from '@/type/ImgItemType';
 import { useRouter } from 'next/router';
 import { PathEnum } from '@/const/PathEnum';
@@ -8,11 +7,14 @@ import { theme } from '@/theme/theme';
 import { challengeImgArray } from '@/assets/images/mogiten/challenge/challengeImgArray';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import Image from 'next/image';
+import { useSetRecoilState } from 'recoil';
+import { boothSelectState } from '@/hooks/state/boothSelectState';
 
 const FRAME_COUNT = 4;
 
 export const EatTab: FC = () => {
   const router = useRouter();
+  const setBoothSelect = useSetRecoilState(boothSelectState);
 
   /**
    * コンテンツ用
@@ -41,6 +43,13 @@ export const EatTab: FC = () => {
 
         <Button
           onClick={() => {
+            setBoothSelect({
+              goukan1: true,
+              goukan3: true,
+              goukan6: true,
+              goukan10: true,
+              challenge: true,
+            });
             router.push(PathEnum.BOOTH);
           }}
           variant="outlined"
