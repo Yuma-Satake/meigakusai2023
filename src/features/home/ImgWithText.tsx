@@ -43,7 +43,7 @@ export const ImgWithText: FC<Props> = ({ isImgRight, imgItem }) => {
           src={imgItem.src}
           alt={imgItem.alt}
           style={{
-            width: '40vw',
+            width: '100%',
             height: 'auto',
             borderRadius: '5px',
           }}

@@ -15,8 +15,6 @@ const Header: FC = () => {
     <>
       <Box
         sx={{
-          position: 'sticky',
-          zIndex: 10,
           display: {
             xs: 'block',
             sm: 'none',

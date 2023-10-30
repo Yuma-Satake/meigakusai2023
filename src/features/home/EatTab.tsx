@@ -68,7 +68,7 @@ export const EatTab: FC = () => {
                 src={item.src}
                 alt={item.alt}
                 style={{
-                  width: '40vw',
+                  width: '100%',
                   height: 'auto',
                   borderRadius: '5px',
                 }}

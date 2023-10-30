@@ -88,12 +88,12 @@ const EventsContent: FC = () => {
           {imgItemArray.length > 0 ? (
             imgItemArray.map((item, index) => {
               return (
-                <Grid item xs={6} key={item.alt + index}>
+                <Grid key={item.alt + index} item xs={6} sx={{ p: 1 }}>
                   <Image
                     src={item.src}
                     alt={item.alt}
                     style={{
-                      width: '40vw',
+                      width: '100%',
                       height: 'auto',
                       borderRadius: '5px',
                     }}
