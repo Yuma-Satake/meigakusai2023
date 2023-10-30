@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next lint && next build && next export",
+    "build": "next lint && next build",
     "deploy": "pnpm build && firebase deploy --only hosting",
     "serve": "pnpm build && serve ./out "
   },
