@@ -1,44 +1,55 @@
-import { ImgItemType } from '@/type/ImgItemType';
-import { Grid, Typography } from '@mui/material';
-import Image from 'next/image';
+import { Grid, Stack, Typography } from '@mui/material';
+import Image, { StaticImageData } from 'next/image';
 import { FC } from 'react';
+
+export type WithTextImgType = {
+  src: StaticImageData;
+  alt: string;
+  headerText: string;
+  bodyText: string;
+};
 
 type Props = {
   isImgRight: boolean;
-  imgItem: ImgItemType;
-  text: string;
+  imgItem: WithTextImgType;
 };
 
-const TextItem: FC<string> = (text) => {
+const TextItem: FC<{
+  headerText: string;
+  bodyText: string;
+}> = ({ headerText, bodyText }) => {
   return (
     <Grid item xs={6}>
-      <Typography
-        sx={{
-          fontWeight: 'bold',
-        }}
-      >
-        {text}
-      </Typography>
+      <Stack spacing={1}>
+        <Typography
+          sx={{
+            fontWeight: 'bold',
+          }}
+        >
+          {headerText}
+        </Typography>
+        <Typography variant="body2">{bodyText}</Typography>
+      </Stack>
     </Grid>
   );
 };
 
-export const ImgWithText: FC<Props> = ({ isImgRight, imgItem, text }) => {
+export const ImgWithText: FC<Props> = ({ isImgRight, imgItem }) => {
   return (
     <Grid container>
-      {isImgRight ? TextItem(text) : null}
+      {isImgRight ? <TextItem headerText={imgItem.headerText} bodyText={imgItem.bodyText} /> : null}
       <Grid item xs={6}>
         <Image
           src={imgItem.src}
           alt={imgItem.alt}
           style={{
-            width: '80%',
+            width: '40vw',
             height: 'auto',
             borderRadius: '5px',
           }}
         />
       </Grid>
-      {!isImgRight ? TextItem(text) : null}
+      {isImgRight ? null : <TextItem headerText={imgItem.headerText} bodyText={imgItem.bodyText} />}
     </Grid>
   );
 };
