@@ -54,16 +54,20 @@ export const ScheduleModal: FC = () => {
   return (
     <Modal open={isOpenModal} onClose={isOpenModalToggle}>
       <Stack spacing={2} sx={{ ...modalStyle, width: '90vw', px: 3, pb: 3 }}>
-        <Grid container alignItems="center">
-          <Grid item xs={10} alignContent="center">
+        <Stack direction="row" alignItems="center" alignContent="space-between">
+          <Box
+            sx={{
+              width: '85vw',
+            }}
+          >
             <Typography variant="h6">名学祭2023開催日程</Typography>
-          </Grid>
-          <Grid item xs={2}>
+          </Box>
+          <Box>
             <IconButton onClick={isOpenModalToggle}>
               <CloseIcon fontSize="large" />
             </IconButton>
-          </Grid>
-        </Grid>
+          </Box>
+        </Stack>
         <ModalContent />
       </Stack>
     </Modal>

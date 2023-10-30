@@ -5,6 +5,8 @@ import { MenuDrawer } from '@/features/Menu/MenuDrawer';
 import { MobileFooter } from '../common/footer/MobileFooter';
 import { MapDrawer } from '@/features/map/MapDrawer';
 import { ScheduleModal } from '@/features/home/ScheduleModal';
+import { Mobile } from './mobile/Mobile';
+import { Desktop } from './desktop/Desktop';
 
 type Props = {
   children: ReactNode;
@@ -14,35 +16,10 @@ const Header: FC = () => {
   return (
     <>
       <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
-        <Box sx={{ height: '40px', bgcolor: 'white' }} />
-        <MobileHeader />
+        <Mobile />
       </Box>
       <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-        {/*
-         * PC用の頭の丸
-         */}
-        <Box
-          sx={{
-            width: '100%',
-            height: '30px',
-            bgcolor: 'white',
-            borderRadius: '10px 10px 0 0',
-          }}
-        />
-        {/*
-         * PC用の背景
-         */}
-        <Box
-          sx={{
-            zIndex: -20,
-            top: 0,
-            left: 0,
-            position: 'fixed',
-            height: '100vh',
-            width: '100vw',
-            bgcolor: 'red',
-          }}
-        />
+        <Desktop />
       </Box>
     </>
   );
@@ -54,17 +31,13 @@ const Header: FC = () => {
 export const Layout: FC<Props> = ({ children }) => {
   return (
     <Container disableGutters>
-      <Container
-        disableGutters
-        maxWidth="xs"
-        sx={{
-          mt: 3,
-          bgcolor: 'white',
-        }}
-      >
+      <Container disableGutters maxWidth="sm">
         <Header />
-        {children}
-        <MobileFooter />
+        <Box sx={{ bgcolor: 'white' }}>
+          <Box sx={{ height: '65px', bgcolor: 'white' }} />
+          {children}
+          <MobileFooter />
+        </Box>
       </Container>
       <MenuDrawer />
       <MapDrawer />

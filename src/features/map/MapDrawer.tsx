@@ -27,7 +27,7 @@ export const MapDrawer: FC = () => {
 
   return (
     <Drawer open={isOpenMap} onClose={isOpenMapToggle} anchor="left" transitionDuration={400}>
-      <Box sx={{ width: '100%', mb: 5 }}>
+      <Box sx={{ width: '100vw', mb: 5 }}>
         <Stack alignItems="flex-end">
           <IconButton onClick={isOpenMapToggle}>
             <CloseIcon fontSize="large" />
