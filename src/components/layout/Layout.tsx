@@ -4,6 +4,7 @@ import { MobileHeader } from '../common/header/MobileHeader';
 import { MenuDrawer } from '@/features/Menu/MenuDrawer';
 import { MobileFooter } from '../common/footer/MobileFooter';
 import { MapDrawer } from '@/features/map/MapDrawer';
+import { ScheduleModal } from '@/features/home/ScheduleModal';
 
 type Props = {
   children: ReactNode;
@@ -46,9 +47,10 @@ export const Layout: FC<Props> = ({ children }) => {
   return (
     <>
       <Header />
+      {children}
       <MenuDrawer />
       <MapDrawer />
-      {children}
+      <ScheduleModal />
       <MobileFooter />
     </>
   );

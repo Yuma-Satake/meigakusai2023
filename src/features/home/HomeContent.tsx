@@ -9,6 +9,9 @@ import { EventTab } from './EventTab';
 import { Carousel } from './Carousel';
 import { TopDayContent } from './TopDayContent';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+import { isOpenScheduleState } from '@/hooks/state/isOpenScheduleState';
+import { useRecoilState } from 'recoil';
+import { discloserWrapper } from '@/hooks/recoilWrapper/discloserWrapper';
 
 const HomeContent: FC = () => {
   /**
@@ -19,6 +22,11 @@ const HomeContent: FC = () => {
     setSelectTab(newSelectTab);
   };
 
+  /**
+   * 開催日程はこちら
+   */
+  const [_, isOpenScheduleModalToggle] = discloserWrapper(useRecoilState(isOpenScheduleState));
+
   return (
     <Layout>
       <Carousel />
@@ -26,7 +34,12 @@ const HomeContent: FC = () => {
         <Stack alignItems="center" sx={{ mt: '-50px' }}>
           <TopDayContent />
         </Stack>
-        <Button size="large" endIcon={<KeyboardDoubleArrowRightIcon />} sx={{ mt: 2 }}>
+        <Button
+          onClick={isOpenScheduleModalToggle}
+          size="large"
+          endIcon={<KeyboardDoubleArrowRightIcon />}
+          sx={{ mt: 2 }}
+        >
           開催日程はこちら
         </Button>
         <Box sx={{ mt: 2, mx: 3 }}>
