@@ -1,3 +1,4 @@
+import { goukan10EventImg } from '@/assets/images/event/10goukan/goukan10EventImg';
 import { goukan1EventImg } from '@/assets/images/event/1goukan/goukan1EventImg';
 import { goukan6EventImg } from '@/assets/images/event/6goukan/goukan6EventImg';
 import { Layout } from '@/components/layout/Layout';
@@ -10,7 +11,7 @@ const useImgInitial = {
   goukan1: goukan1EventImg,
   goukan3: [],
   goukan6: goukan6EventImg,
-  goukan10: [],
+  goukan10: goukan10EventImg,
   challenge: [],
 };
 
