@@ -27,7 +27,7 @@ export const MobileFooter: FC = () => {
       </Stack>
       <Box
         sx={{
-          width: '100vw',
+          width: '100%',
           color: 'white',
           bgcolor: '#333333',
           px: 2,

@@ -1,5 +1,5 @@
 import { discloserWrapper } from '@/hooks/recoilWrapper/discloserWrapper';
-import { Box, Drawer, IconButton, Stack, Typography } from '@mui/material';
+import { Box, Container, Drawer, IconButton, Stack, Typography } from '@mui/material';
 import { FC } from 'react';
 import { useRecoilState } from 'recoil';
 import CloseIcon from '@mui/icons-material/Close';
@@ -27,13 +27,13 @@ export const MapDrawer: FC = () => {
 
   return (
     <Drawer open={isOpenMap} onClose={isOpenMapToggle} anchor="left" transitionDuration={400}>
-      <Box sx={{ width: '100vw', mb: 5 }}>
+      <Box sx={{ width: '100%', mb: 5 }}>
         <Stack alignItems="flex-end">
           <IconButton onClick={isOpenMapToggle}>
             <CloseIcon fontSize="large" />
           </IconButton>
         </Stack>
-        <Stack alignItems="center" spacing={4}>
+        <Stack alignItems="center" spacing={4} sx={{ mt: 1 }}>
           {mapArray.map((item) => {
             return (
               <Stack key={item.label} spacing={1}>
@@ -44,7 +44,7 @@ export const MapDrawer: FC = () => {
                       window.open(item.src.src);
                     }}
                   >
-                    <ImageSearchIcon />
+                    <ImageSearchIcon fontSize="medium" />
                   </IconButton>
                 </Stack>
                 <Image

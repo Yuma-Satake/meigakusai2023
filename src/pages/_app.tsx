@@ -34,14 +34,14 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
         }}
       />
       <Providers>
-        <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+        {/* <Box sx={{ display: { xs: 'none', md: 'block' } }}>
           <NoPc />
         </Box>
         <Box sx={{ display: { xs: 'block', md: 'none' } }}>
           <Component {...pageProps} />
-        </Box>
+        </Box> */}
 
-        {/* <Component {...pageProps} /> */}
+        <Component {...pageProps} />
       </Providers>
     </>
   );

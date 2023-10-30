@@ -46,7 +46,7 @@ export const TopDayContent: FC = () => {
       spacing={1}
       sx={{
         ...boxStyle,
-        width: '85vw',
+        width: '85%',
         border: 'solid 1px',
         borderColor: 'primary.light',
         opacity: 0.9,

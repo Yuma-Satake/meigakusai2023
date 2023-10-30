@@ -34,11 +34,11 @@ export const Carousel: FC = () => {
       loading="lazy"
       style={{
         position: 'relative',
-        zIndex: -1,
+        zIndex: 0,
         opacity: imgOpacity,
         transitionProperty: 'opacity',
         transitionDuration: '1s',
-        width: '100vw',
+        width: '100%',
         height: 'auto',
         objectFit: 'contain',
       }}

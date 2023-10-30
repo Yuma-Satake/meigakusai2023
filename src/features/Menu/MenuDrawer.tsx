@@ -51,7 +51,7 @@ export const MenuDrawer: FC = () => {
 
   return (
     <Drawer open={isOpenMenu} onClose={isOpenMenuToggle} anchor="right" transitionDuration={400}>
-      <Box sx={{ width: '50vw' }}>
+      <Box sx={{ width: '40vw' }}>
         <Stack alignItems="flex-end" sx={{ mt: 0.5, mr: 1 }}>
           <IconButton onClick={isOpenMenuToggle}>
             <CloseIcon fontSize="large" />
@@ -70,15 +70,14 @@ export const MenuDrawer: FC = () => {
                 }}
               >
                 <Button
+                  fullWidth
                   size="large"
                   startIcon={item.icon}
                   onClick={() => {
                     handleMenuClick(item.path);
                   }}
                 >
-                  <Typography variant="h6" sx={{ width: '4em', textAlign: 'left' }}>
-                    {item.label}
-                  </Typography>
+                  <Typography sx={{ width: '4em', textAlign: 'left' }}>{item.label}</Typography>
                 </Button>
               </Box>
             );
