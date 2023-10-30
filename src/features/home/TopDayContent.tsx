@@ -42,12 +42,13 @@ export const TopDayContent: FC = () => {
       sx={{
         ...boxStyle,
         width: '85vw',
-        bgcolor: 'primary.light',
+        border: 'solid 1px',
+        borderColor: 'primary.light',
         opacity: 0.9,
       }}
     >
       <Stack alignItems="center" spacing={1.3} sx={{ ...boxStyle, textAlign: 'center', py: 2.5 }}>
-        <Typography variant="h6">-- 名学祭開催まで --</Typography>
+        <Typography variant="h6">ー 名学祭開催まで ー</Typography>
         {diffTypograhy}
         <Stack direction="row" spacing={1}>
           <Typography>{dayjs(EVENT_DAY_INFO[0].day).format('MM/DD')}</Typography>

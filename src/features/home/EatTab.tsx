@@ -1,4 +1,4 @@
-import { Box, Button, Stack, Typography } from '@mui/material';
+import { Box, Button, Grid, Stack, Typography } from '@mui/material';
 import { FC, useEffect, useState } from 'react';
 import { ImgWithText } from './ImgWithText';
 import { ImgItemType } from '@/type/ImgItemType';
@@ -7,6 +7,7 @@ import { PathEnum } from '@/const/PathEnum';
 import { theme } from '@/theme/theme';
 import { challengeImgArray } from '@/assets/images/mogiten/challenge/challengeImgArray';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+import Image from 'next/image';
 
 const FRAME_COUNT = 4;
 
@@ -50,19 +51,23 @@ export const EatTab: FC = () => {
           一覧を見る
         </Button>
       </Stack>
-      <Stack spacing={2}>
-        {content.map((item, index) => {
-          const isImgRight = index % 2 === 0;
+      <Grid container spacing={2}>
+        {content.map((item) => {
           return (
-            <ImgWithText
-              key={item.alt}
-              isImgRight={isImgRight}
-              imgItem={item}
-              text="世界の蘇我ちゃん"
-            />
+            <Grid key={item.src.toString()} item xs={6}>
+              <Image
+                src={item.src}
+                alt={item.alt}
+                style={{
+                  width: '40vw',
+                  height: 'auto',
+                  borderRadius: '5px',
+                }}
+              />
+            </Grid>
           );
         })}
-      </Stack>
+      </Grid>
     </Box>
   );
 };

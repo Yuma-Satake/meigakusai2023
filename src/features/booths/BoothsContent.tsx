@@ -106,6 +106,7 @@ const BoothsContent: FC = () => {
                     style={{
                       width: '40vw',
                       height: 'auto',
+                      borderRadius: '5px',
                     }}
                   />
                 </Grid>
