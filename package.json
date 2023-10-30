@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next lint && next build && next export",
-    "deploy": "next lint && next build && next export && firebase deploy --only hosting"
+    "deploy": "pnpm build && firebase deploy --only hosting",
+    "serve": "pnpm build && serve ./out "
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -26,6 +27,7 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "13.5.6",
+    "serve": "^14.2.1",
     "typescript": "^5"
   }
 }
