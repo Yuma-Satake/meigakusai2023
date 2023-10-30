@@ -1,4 +1,4 @@
-import { NoPc } from '@/features/home/Nopc';
+import { NoPc } from '@/features/home/NoPc';
 import { Providers } from '@/store/Providers';
 import '@/styles/globals.css';
 import { Box } from '@mui/material';
