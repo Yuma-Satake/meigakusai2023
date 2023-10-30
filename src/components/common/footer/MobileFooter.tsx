@@ -29,7 +29,7 @@ export const MobileFooter: FC = () => {
         sx={{
           width: '100vw',
           color: 'white',
-          bgcolor: 'gray',
+          bgcolor: '#333333',
           px: 2,
           py: 1,
         }}

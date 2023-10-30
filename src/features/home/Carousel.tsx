@@ -31,6 +31,7 @@ export const Carousel: FC = () => {
     <Image
       src={imgList[imgListPointer]}
       alt="名学祭イメージ画像"
+      loading="lazy"
       style={{
         position: 'relative',
         zIndex: -1,

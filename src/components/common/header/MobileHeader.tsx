@@ -15,9 +15,15 @@ const MenuIconComponents: FC<{
   isDisable?: boolean;
   onClick?: () => void;
   icon: ReactNode;
-}> = ({ isDisable, onClick, icon }) => {
+  ariaLabel: string;
+}> = ({ isDisable, onClick, icon, ariaLabel }) => {
   return (
-    <IconButton onClick={onClick} disabled={isDisable} sx={{ opacity: isDisable ? 0 : 1 }}>
+    <IconButton
+      onClick={onClick}
+      disabled={isDisable}
+      aria-label={ariaLabel}
+      sx={{ opacity: isDisable ? 0 : 1 }}
+    >
       {icon}
     </IconButton>
   );
@@ -35,7 +41,11 @@ export const MobileHeader: FC = () => {
   return (
     <AppBar sx={{ height: '65px', p: 0.5, px: 1, bgcolor: 'white', opacity: 0.85 }}>
       <Stack direction="row" justifyContent="space-between" alignItems="center">
-        <MenuIconComponents onClick={isOpenMapToggle} icon={<MapIcon fontSize="large" />} />
+        <MenuIconComponents
+          onClick={isOpenMapToggle}
+          icon={<MapIcon fontSize="large" />}
+          ariaLabel="マップを開く"
+        />
         <Button
           onClick={() => {
             handlePush(PathEnum.HOME);
@@ -47,7 +57,11 @@ export const MobileHeader: FC = () => {
             style={{ height: '45px', marginBottom: 1, width: 'auto' }}
           />
         </Button>
-        <MenuIconComponents onClick={isOpenMenuToggle} icon={<MenuIcon fontSize="large" />} />
+        <MenuIconComponents
+          onClick={isOpenMenuToggle}
+          icon={<MenuIcon fontSize="large" />}
+          ariaLabel="メニューを開く"
+        />
       </Stack>
     </AppBar>
   );
