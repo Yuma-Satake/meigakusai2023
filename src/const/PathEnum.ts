@@ -1,5 +1,5 @@
 export enum PathEnum {
-  HOME = '/',
+  HOME = '/index.html',
   // MAP = '/map',
   EVENTS = '/events',
   BOOTH = '/booths',
