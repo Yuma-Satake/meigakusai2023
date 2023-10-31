@@ -1,6 +1,6 @@
 import { Layout } from '@/components/layout/Layout';
 import { Box, Button, Stack } from '@mui/material';
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 import { MenuTabs } from '@/components/common/tabs/MenuTabs';
 import { TabNameEnum } from '@/const/TabNameEnum';
 import { EatTab } from './EatTab';

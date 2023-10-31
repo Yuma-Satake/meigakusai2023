@@ -1,5 +1,5 @@
 import { EVENT_DAY_INFO } from '@/const/eventDayInfo';
-import { Box, Stack, Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 import { FC, useEffect, useState } from 'react';
 

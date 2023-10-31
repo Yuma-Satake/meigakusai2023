@@ -1,6 +1,5 @@
 import { Box, Stack, Typography } from '@mui/material';
 import { FC } from 'react';
-import footerLogo from '@/assets/images/headfoot/footer-logo.png';
 
 export const MobileFooter: FC = () => {
   return (

@@ -1,11 +1,9 @@
 import { discloserWrapper } from '@/hooks/recoilWrapper/discloserWrapper';
-import { Box, Container, Drawer, IconButton, Stack, Typography } from '@mui/material';
+import { Box, Drawer, IconButton, Stack, Typography } from '@mui/material';
 import { FC } from 'react';
 import { useRecoilState } from 'recoil';
 import CloseIcon from '@mui/icons-material/Close';
 import { isOpenMapState } from '@/hooks/state/isOpenMapState';
-import challenging from '@/assets/images/map/challenging.jpg';
-import map from '@/assets/images/index/map.jpg';
 import ImageSearchIcon from '@mui/icons-material/ImageSearch';
 
 const mapArray: { label: string; src: string; alt: string }[] = [

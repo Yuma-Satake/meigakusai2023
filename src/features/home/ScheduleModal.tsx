@@ -2,17 +2,7 @@ import { EVENT_DAY_INFO } from '@/const/eventDayInfo';
 import { discloserWrapper } from '@/hooks/recoilWrapper/discloserWrapper';
 import { isOpenScheduleState } from '@/hooks/state/isOpenScheduleState';
 import { modalStyle } from '@/styles/modalStyle';
-import {
-  Box,
-  Grid,
-  IconButton,
-  Modal,
-  Stack,
-  Table,
-  TableBody,
-  TableHead,
-  Typography,
-} from '@mui/material';
+import { Box, IconButton, Modal, Stack, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 import { FC } from 'react';
 import { useRecoilState } from 'recoil';

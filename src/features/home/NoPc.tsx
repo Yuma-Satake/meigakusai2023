@@ -1,8 +1,5 @@
 import { FC } from 'react';
-import headerLogo from '@/assets/images/headfoot/header-logo.png';
 import { Stack, Typography } from '@mui/material';
-import devqr from '@/assets/qr/devqr.png';
-import productqr from '@/assets/qr/productqr.png';
 import { IS_DEV_MODE } from '@/const/env';
 
 export const NoPc: FC = () => {

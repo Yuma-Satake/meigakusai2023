@@ -4,8 +4,6 @@ import { useRouter } from 'next/router';
 import { theme } from '@/theme/theme';
 import { PathEnum } from '@/const/PathEnum';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
-import exhibition from '@/assets/images/event/1goukan/exhibition.jpg';
-import segway from '@/assets/images/event/6goukan/segway.jpg';
 import { ImgWithText, WithTextImgType } from './ImgWithText';
 
 const withTextImgArray: WithTextImgType[] = [

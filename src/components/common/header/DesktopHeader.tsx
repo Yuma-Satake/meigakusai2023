@@ -1,7 +1,6 @@
 import { AppBar, Box, Button, IconButton, Stack } from '@mui/material';
 import { FC, ReactNode } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
-import Logo from '@/assets/images/headfoot/header-logo.png';
 import MapIcon from '@mui/icons-material/Map';
 import { useRecoilState } from 'recoil';
 import { isOpenMenuState } from '@/hooks/state/isOpenMenuState';
