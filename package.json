@@ -1,12 +1,12 @@
 {
   "name": "meigakusai2023",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "serve": "serve ./out ",
     "build": "next lint && next build",
-    "deploy": "pnpm build && firebase deploy --only hosting",
-    "serve": "pnpm build && serve ./out "
+    "deploy": "pnpm build && firebase deploy --only hosting"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
