@@ -7,6 +7,7 @@ import { IS_DEV_MODE } from '@/const/env';
 
 export const NoPc: FC = () => {
   const qrSrc = IS_DEV_MODE ? './devqr.png' : './productqr.png';
+  console.log(qrSrc);
 
   return (
     <Stack
