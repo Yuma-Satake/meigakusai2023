@@ -8,6 +8,7 @@
       {
         "patterns": ["next/image"]
       }
-    ]
+    ],
+    "react-hooks/exhaustive-deps": "off"
   }
 }
