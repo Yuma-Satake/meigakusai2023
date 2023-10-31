@@ -34,10 +34,10 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
         }}
       />
       <Providers>
-        <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+        <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
           <NoPc />
         </Box>
-        <Box sx={{ display: { xs: 'block', md: 'none' } }}>
+        <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
           <Component {...pageProps} />
         </Box>
 

@@ -4,20 +4,19 @@ import { FC } from 'react';
 import { useRecoilState } from 'recoil';
 import CloseIcon from '@mui/icons-material/Close';
 import { isOpenMapState } from '@/hooks/state/isOpenMapState';
-import Image, { StaticImageData } from 'next/image';
 import challenging from '@/assets/images/map/challenging.jpg';
 import map from '@/assets/images/index/map.jpg';
 import ImageSearchIcon from '@mui/icons-material/ImageSearch';
 
-const mapArray: { label: string; src: StaticImageData; alt: string }[] = [
+const mapArray: { label: string; src: string; alt: string }[] = [
   {
     label: '全体マップ',
-    src: map,
+    src: './map.jpg',
     alt: '名学祭の全体マップ',
   },
   {
     label: 'チャレンジングロット',
-    src: challenging,
+    src: './challenging.jpg',
     alt: 'チャレンジングロットのマップ 1から20までの飲食店が出店している',
   },
 ];
@@ -41,13 +40,13 @@ export const MapDrawer: FC = () => {
                   <Typography variant="h6">{item.label}</Typography>
                   <IconButton
                     onClick={() => {
-                      window.open(item.src.src);
+                      window.open(item.src);
                     }}
                   >
                     <ImageSearchIcon fontSize="medium" />
                   </IconButton>
                 </Stack>
-                <Image
+                <img
                   src={item.src}
                   alt={item.alt}
                   style={{

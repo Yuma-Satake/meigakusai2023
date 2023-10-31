@@ -1,9 +1,8 @@
 import { Grid, Stack, Typography } from '@mui/material';
-import Image, { StaticImageData } from 'next/image';
 import { FC } from 'react';
 
 export type WithTextImgType = {
-  src: StaticImageData;
+  src: string;
   alt: string;
   headerText: string;
   bodyText: string;
@@ -39,7 +38,7 @@ export const ImgWithText: FC<Props> = ({ isImgRight, imgItem }) => {
     <Grid container>
       {isImgRight ? <TextItem headerText={imgItem.headerText} bodyText={imgItem.bodyText} /> : null}
       <Grid item xs={6}>
-        <Image
+        <img
           src={imgItem.src}
           alt={imgItem.alt}
           style={{

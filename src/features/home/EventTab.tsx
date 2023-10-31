@@ -10,13 +10,13 @@ import { ImgWithText, WithTextImgType } from './ImgWithText';
 
 const withTextImgArray: WithTextImgType[] = [
   {
-    src: exhibition,
+    src: './exhibition.jpg',
     alt: 'ゲーム・CG学科 学生作品展示',
     headerText: '学生作品展示',
     bodyText: 'ゲーム作品の試遊やCG作品を鑑賞することができます！',
   },
   {
-    src: segway,
+    src: './segway.jpg',
     alt: 'セグウェイ試乗体験',
     headerText: 'セグウェイ試乗体験',
     bodyText: '特設コースを走り回るセグウェイの試乗体験ができます！',

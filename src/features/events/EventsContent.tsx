@@ -4,7 +4,6 @@ import { goukan6EventImg } from '@/assets/images/event/6goukan/goukan6EventImg';
 import { Layout } from '@/components/layout/Layout';
 import useImg, { FilterCheckBoxType } from '@/hooks/useImg';
 import { Checkbox, FormControlLabel, Grid, Stack, Typography } from '@mui/material';
-import Image from 'next/image';
 import { FC, useEffect, useState } from 'react';
 
 const useImgInitial = {
@@ -90,7 +89,7 @@ const EventsContent: FC = () => {
             imgItemArray.map((item, index) => {
               return (
                 <Grid key={item.alt + index} item xs={6} sx={{ p: 1 }}>
-                  <Image
+                  <img
                     src={item.src}
                     alt={item.alt}
                     style={{
