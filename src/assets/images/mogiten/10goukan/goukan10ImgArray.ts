@@ -1,4 +1,4 @@
-import { ImgItemType } from '@/type/ImgItemType';
+import { ImgItemType } from '@/types/ImgItemType';
 
 export const goukan10ImgArray: ImgItemType[] = [
   { src: './01_1041-mc1.jpg', alt: 'no1' },

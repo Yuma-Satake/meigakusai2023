@@ -1,6 +1,6 @@
 import { Box, Button, Grid, Stack, Typography } from '@mui/material';
 import { FC, useEffect, useState } from 'react';
-import { ImgItemType } from '@/type/ImgItemType';
+import { ImgItemType } from '@/types/ImgItemType';
 import { useRouter } from 'next/router';
 import { PathEnum } from '@/const/PathEnum';
 import { theme } from '@/theme/theme';

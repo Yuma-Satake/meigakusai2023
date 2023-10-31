@@ -1,4 +1,4 @@
-import { ImgItemType } from '@/type/ImgItemType';
+import { ImgItemType } from '@/types/ImgItemType';
 
 export const challengeImgArray: ImgItemType[] = [
   { src: '01_ct3b.jpg', alt: 'no1' },

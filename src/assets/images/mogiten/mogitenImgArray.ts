@@ -1,4 +1,4 @@
-import { ImgItemType } from '@/type/ImgItemType';
+import { ImgItemType } from '@/types/ImgItemType';
 import { challengeImgArray } from './challenge/challengeImgArray';
 import { goukan10ImgArray } from './10goukan/goukan10ImgArray';
 import { goukan1ImgArray } from './1goukan/goukan1ImgArray';

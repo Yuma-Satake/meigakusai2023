@@ -1,4 +1,4 @@
-import { ImgItemType } from '@/type/ImgItemType';
+import { ImgItemType } from '@/types/ImgItemType';
 
 export const goukan1EventImg: ImgItemType[] = [
   { src: './band.jpg', alt: 'band' },
