@@ -283,7 +283,7 @@ const BoothsContent: FC = () => {
                   pt: 1,
                 }}
               >
-                {searchWordChip.map((item) => {
+                {searchWordChip.slice(0, 4).map((item) => {
                   if (item === '') return null;
                   return <Chip key={item} label={item} sx={{ mr: 0.5 }} />;
                 })}
