@@ -20,6 +20,8 @@ import { FC, useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { FilterButtonGroup } from '../FilterButtonGroup';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import { addDoc, collection, getDocs, query } from 'firebase/firestore';
+import { db } from '@/lib/firebase';
 
 const useImgInitial = {
   goukan1: goukan1ImgArray,
@@ -52,7 +54,7 @@ export const filterCheckBoxList: FilterCheckBoxType[] = [
   },
 ];
 
-export const searchWordChip = ['ボードゲーム', 'うどん', 'ゲーム', 'メイド'];
+const initialSearchWordChip = ['ボードゲーム', 'うどん', 'ゲーム', 'メイド'];
 
 const BoothsContent: FC = () => {
   const { imgItemArray, filterProperty, filter, wordFilter } = useImg(useImgInitial);
@@ -69,6 +71,48 @@ const BoothsContent: FC = () => {
     setSearchInput(e.target.value);
   };
   const [message, setMessage] = useState<string>('');
+
+  /**
+   * よく使われるワード
+   */
+  const [searchWordChip, setSearchWordChip] = useState<string[]>(initialSearchWordChip);
+
+  const findMostFrequentString = (arr: string[]) => {
+    const frequency: { [key: string]: number } = arr.reduce(
+      (acc: { [key: string]: number }, curr: string) => {
+        if (curr in acc) {
+          acc[curr]++;
+        } else {
+          acc[curr] = 1;
+        }
+        return acc;
+      },
+      {}
+    );
+    const maxFrequency = Math.max(...Object.values(frequency));
+    const newItem = Object.keys(frequency)
+      .filter(
+        (key) =>
+          frequency[key] === maxFrequency ||
+          frequency[key] === maxFrequency - 1 ||
+          frequency[key] === maxFrequency - 2
+      )
+      .slice(0, 5);
+    return newItem;
+  };
+
+  useEffect(() => {
+    (async () => {
+      const q = query(collection(db, 'searchWords'));
+      const querySnapshot = await getDocs(q);
+      let array: string[] = [];
+      querySnapshot.forEach((doc) => {
+        array.push(doc.data().word);
+      });
+      const newItem = findMostFrequentString(array);
+      setSearchWordChip(newItem);
+    })();
+  }, [isOpenSearch === true]);
 
   useEffect(() => {
     // もし challengeのみが選択されていたら、"食品店のみ絞り込み"というメッセージを表示する
@@ -123,6 +167,16 @@ const BoothsContent: FC = () => {
   useEffect(() => {
     filter(boothSelectValue);
   }, [boothSelectValue]);
+
+  const onSearchInputBlur = async () => {
+    try {
+      await addDoc(collection(db, 'searchWords'), {
+        word: searchInput,
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   return (
     <Layout>
@@ -198,6 +252,7 @@ const BoothsContent: FC = () => {
               <OutlinedInput
                 value={searchInput}
                 onChange={handleSearchInput}
+                onBlur={onSearchInputBlur}
                 placeholder="フリーワード検索"
                 endAdornment={
                   <IconButton
