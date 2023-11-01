@@ -284,6 +284,7 @@ const BoothsContent: FC = () => {
                 }}
               >
                 {searchWordChip.map((item) => {
+                  if (item === '') return null;
                   return <Chip key={item} label={item} sx={{ mr: 0.5 }} />;
                 })}
               </Grid>
