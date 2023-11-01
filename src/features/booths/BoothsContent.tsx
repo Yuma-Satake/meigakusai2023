@@ -89,15 +89,16 @@ const BoothsContent: FC = () => {
       },
       {}
     );
-    const maxFrequency = Math.max(...Object.values(frequency));
-    const newItem = Object.keys(frequency)
-      .filter(
-        (key) =>
-          frequency[key] === maxFrequency ||
-          frequency[key] === maxFrequency - 1 ||
-          frequency[key] === maxFrequency - 2
-      )
-      .slice(0, 5);
+
+    // frequencyの大きい順に並び替えて、大きい方から4つ取得する
+    const sortedList = Object.entries(frequency)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 4);
+
+    const newItem = sortedList.map((item) => item[0]);
+
+    console.log(newItem);
+
     return newItem;
   };
 
