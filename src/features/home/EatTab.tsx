@@ -28,6 +28,8 @@ export const EatTab: FC = () => {
   return (
     <Box
       sx={{
+        borderRadius: '5px',
+        mb: 2,
         p: 2,
         pb: 5,
         background: `linear-gradient(to bottom right,${theme.palette.warning.light}, ${theme.palette.warning.dark})`,

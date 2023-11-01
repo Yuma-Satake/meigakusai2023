@@ -12,7 +12,8 @@ export const TopDayContent: FC = () => {
   const [nowEventDay, setNowEventDay] = useState<NowEventDayEnum>(NowEventDayEnum.IS_YET);
 
   const changeTime = () => {
-    const newDay = dayjs();
+    const newDay = dayjs('2023-11-2 13:00:00');
+    // const newDay = dayjs();
     setNowTime(newDay);
 
     /**

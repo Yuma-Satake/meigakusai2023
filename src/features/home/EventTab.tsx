@@ -27,6 +27,8 @@ export const EventTab: FC = () => {
   return (
     <Box
       sx={{
+        borderRadius: '5px',
+        mb: 2,
         p: 2,
         pb: 5,
         background: `linear-gradient(to bottom left, ${theme.palette.success.light}, ${theme.palette.success.main})`,
