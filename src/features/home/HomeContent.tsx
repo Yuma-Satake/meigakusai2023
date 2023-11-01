@@ -7,7 +7,7 @@ import { EatTab } from './EatTab';
 import { ActivityTab } from './ActivityTab';
 import { EventTab } from './EventTab';
 import { Carousel } from './Carousel';
-import { TopDayContent } from './TopDayContent';
+import { TopDayContent } from '../daycontent/TopDayContent';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import { isOpenScheduleState } from '@/hooks/state/isOpenScheduleState';
 import { useRecoilState } from 'recoil';
