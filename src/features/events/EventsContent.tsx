@@ -3,7 +3,8 @@ import { goukan1EventImg } from '@/assets/images/event/1goukan/goukan1EventImg';
 import { goukan6EventImg } from '@/assets/images/event/6goukan/goukan6EventImg';
 import { Layout } from '@/components/layout/Layout';
 import useImg, { FilterCheckBoxType } from '@/hooks/useImg';
-import { Checkbox, FormControlLabel, Grid, Stack, Typography } from '@mui/material';
+import { ImgItemType } from '@/types/ImgItemType';
+import { Box, Checkbox, FormControlLabel, Grid, Stack, Typography } from '@mui/material';
 import { FC, useEffect, useState } from 'react';
 
 const useImgInitial = {
@@ -26,6 +27,28 @@ export const filterCheckBoxList: FilterCheckBoxType[] = [
   {
     key: 'goukan10',
     label: '10号館',
+  },
+];
+
+const goukanList: {
+  key: string;
+  label: string;
+  imgArray: ImgItemType[];
+}[] = [
+  {
+    key: 'goukan1',
+    label: '1号館',
+    imgArray: goukan1EventImg,
+  },
+  {
+    key: 'goukan6',
+    label: '6号館',
+    imgArray: goukan6EventImg,
+  },
+  {
+    key: 'goukan10',
+    label: '10号館',
+    imgArray: goukan10EventImg,
   },
 ];
 
@@ -61,61 +84,54 @@ const EventsContent: FC = () => {
         }}
       >
         <Typography variant="h6">イベント一覧</Typography>
-        <Stack sx={{ pb: 2 }}>
-          {
-            <FormControlLabel
-              label="全てのイベント"
-              control={<Checkbox checked={isAllChecked} onClick={handleAllChecked} />}
-            />
-          }
-          {filterCheckBoxList.map((item) => {
-            return (
-              <FormControlLabel
-                key={item.key}
-                label={item.label}
-                control={<Checkbox checked={filterProperty[item.key]} />}
-                onClick={() => {
-                  const changeKey = item.key;
-                  filter({
-                    [changeKey]: !filterProperty[item.key],
-                  });
+
+        {goukanList.map((item) => {
+          return (
+            <Box key={item.key}>
+              <Typography
+                variant="h6"
+                sx={{
+                  borderBottom: '0.5px solid black',
+                  py: 1,
                 }}
-              />
-            );
-          })}
-        </Stack>
-        <Grid container>
-          {imgItemArray.length > 0 ? (
-            imgItemArray.map((item, index) => {
-              return (
-                <Grid key={item.alt + index} item xs={6} sx={{ p: 1 }}>
-                  <img
-                    src={item.src}
-                    alt={item.alt}
-                    style={{
-                      width: '100%',
-                      height: 'auto',
+              >
+                {item.label}
+              </Typography>
+              <Grid container>
+                {item.imgArray.length > 0 ? (
+                  item.imgArray.map((item, index) => {
+                    return (
+                      <Grid key={item.alt + index} item xs={6} sx={{ p: 1 }}>
+                        <img
+                          src={item.src}
+                          alt={item.alt}
+                          style={{
+                            width: '100%',
+                            height: 'auto',
+                            borderRadius: '5px',
+                          }}
+                        />
+                      </Grid>
+                    );
+                  })
+                ) : (
+                  <Grid
+                    item
+                    xs={12}
+                    sx={{
+                      p: 3,
+                      border: '0.5px solid black',
                       borderRadius: '5px',
+                      textAlign: 'center',
                     }}
-                  />
-                </Grid>
-              );
-            })
-          ) : (
-            <Grid
-              item
-              xs={12}
-              sx={{
-                p: 3,
-                border: '0.5px solid black',
-                borderRadius: '5px',
-                textAlign: 'center',
-              }}
-            >
-              <Typography>対象のイベントはありません</Typography>
-            </Grid>
-          )}
-        </Grid>
+                  >
+                    <Typography>対象のイベントはありません</Typography>
+                  </Grid>
+                )}
+              </Grid>
+            </Box>
+          );
+        })}
       </Stack>
     </Layout>
   );

@@ -49,7 +49,7 @@ export const EventTab: FC = () => {
           endIcon={<KeyboardDoubleArrowRightIcon />}
           sx={{ bgcolor: 'white' }}
         >
-          一覧を見る
+          イベント一覧を見る
         </Button>
       </Stack>
       <Stack spacing={2}>

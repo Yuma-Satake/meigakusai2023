@@ -20,6 +20,7 @@ const ModalContent: FC = () => {
               <Typography
                 sx={{
                   p: 1.5,
+                  px: 2,
                   border: 'solid 1px',
                   borderRadius: '5px',
                 }}

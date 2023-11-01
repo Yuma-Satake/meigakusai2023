@@ -34,6 +34,7 @@ type UseImgType = {
   imgItemArray: ImgItemType[];
   filterProperty: FilterType;
   filter: (filterProperty: Partial<FilterType>) => void;
+  wordFilter: (filterWord: string) => void;
 };
 
 const useImg = ({ goukan1, goukan3, goukan6, goukan10, challenge }: Props): UseImgType => {
@@ -48,6 +49,7 @@ const useImg = ({ goukan1, goukan3, goukan6, goukan10, challenge }: Props): UseI
   const [originalImgArray] = useState<Props>(initialOriginalImgArray);
   const [imgItemArray, setImgItemArray] = useState<ImgItemType[]>(allImgArray);
   const [_filterProperty, setFilterProperty] = useState<FilterType>(initialFilterProperty);
+  const [_filterWord, setFilterWord] = useState<string>('');
 
   const filter = (filterProperty: Partial<FilterType>): void => {
     const { goukan1, goukan3, goukan6, goukan10, challenge } = filterProperty;
@@ -64,16 +66,34 @@ const useImg = ({ goukan1, goukan3, goukan6, goukan10, challenge }: Props): UseI
       ...(newProperty.goukan6 ? originalImgArray.goukan6 : []),
       ...(newProperty.goukan10 ? originalImgArray.goukan10 : []),
       ...(newProperty.challenge ? originalImgArray.challenge : []),
-    ].sort((item) => Number(item.alt.slice(-5, -4)));
+    ]
+      .sort((item) => Number(item.alt.slice(-5, -4)))
+      .filter((item) => item.alt.includes(_filterWord));
 
     setImgItemArray(newItem);
     setFilterProperty(newProperty);
+  };
+
+  const wordFilter = (filterWord: string): void => {
+    setFilterWord(filterWord);
+    const newItem = [
+      ...(_filterProperty.goukan1 ? originalImgArray.goukan1 : []),
+      ...(_filterProperty.goukan3 ? originalImgArray.goukan3 : []),
+      ...(_filterProperty.goukan6 ? originalImgArray.goukan6 : []),
+      ...(_filterProperty.goukan10 ? originalImgArray.goukan10 : []),
+      ...(_filterProperty.challenge ? originalImgArray.challenge : []),
+    ]
+      .sort((item) => Number(item.alt.slice(-5, -4)))
+      .filter((item) => item.alt.includes(filterWord));
+
+    setImgItemArray(newItem);
   };
 
   return {
     imgItemArray,
     filterProperty: _filterProperty,
     filter,
+    wordFilter,
   };
 };
 

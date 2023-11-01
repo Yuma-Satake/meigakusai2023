@@ -58,7 +58,7 @@ export const ActivityTab: FC = () => {
           endIcon={<KeyboardDoubleArrowRightIcon />}
           sx={{ bgcolor: 'white' }}
         >
-          一覧を見る
+          模擬店一覧を見る
         </Button>
       </Stack>
       <Grid container spacing={2}>
