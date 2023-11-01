@@ -20,7 +20,7 @@ export const DiffTypography: FC<Props> = ({ nowTime, startTimeObj }) => {
         </>
       ) : null}
       <Typography variant="h4">{Math.abs(nowTime.diff(startTimeObj, 'hour') % 24)}</Typography>
-      <Typography sx={{ fontSize: '20px' }}>時</Typography>
+      <Typography sx={{ fontSize: '20px' }}>時間</Typography>
       <Typography variant="h4">{Math.abs(nowTime.diff(startTimeObj, 'minute') % 60)}</Typography>
       <Typography sx={{ fontSize: '20px' }}>分</Typography>
       <Typography variant="h4">{Math.abs(nowTime.diff(startTimeObj, 'second') % 60)}</Typography>

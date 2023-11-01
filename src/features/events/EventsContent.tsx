@@ -1,5 +1,6 @@
 import { goukan10EventImg } from '@/assets/images/event/10goukan/goukan10EventImg';
 import { goukan1EventImg } from '@/assets/images/event/1goukan/goukan1EventImg';
+import { goukan3EventImg } from '@/assets/images/event/3goukan/goukan3EventImg';
 import { goukan6EventImg } from '@/assets/images/event/6goukan/goukan6EventImg';
 import { Layout } from '@/components/layout/Layout';
 import useImg, { FilterCheckBoxType } from '@/hooks/useImg';
@@ -39,6 +40,11 @@ const goukanList: {
     key: 'goukan1',
     label: '1号館',
     imgArray: goukan1EventImg,
+  },
+  {
+    key: 'goukan3',
+    label: '3号館',
+    imgArray: goukan3EventImg,
   },
   {
     key: 'goukan6',

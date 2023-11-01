@@ -2,7 +2,6 @@ import { ImgItemType } from '@/types/ImgItemType';
 
 export const goukan6EventImg: ImgItemType[] = [
   { src: './drone.jpg', alt: 'drone' },
-  { src: './karate.jpg', alt: 'karate' },
   { src: './kick.jpg', alt: 'kick' },
   { src: './kouyukai.jpg', alt: 'kouyukai' },
   { src: './segway.jpg', alt: 'segway' },
