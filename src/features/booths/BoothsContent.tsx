@@ -102,16 +102,20 @@ const BoothsContent: FC = () => {
   };
 
   useEffect(() => {
-    (async () => {
-      const q = query(collection(db, 'searchWords'));
-      const querySnapshot = await getDocs(q);
-      let array: string[] = [];
-      querySnapshot.forEach((doc) => {
-        array.push(doc.data().word);
-      });
-      const newItem = findMostFrequentString(array);
-      setSearchWordChip(newItem);
-    })();
+    try {
+      (async () => {
+        const q = query(collection(db, 'searchWords'));
+        const querySnapshot = await getDocs(q);
+        let array: string[] = [];
+        querySnapshot.forEach((doc) => {
+          array.push(doc.data().word);
+        });
+        const newItem = findMostFrequentString(array);
+        setSearchWordChip(newItem);
+      })();
+    } catch (e) {
+      console.error(e);
+    }
   }, [isOpenSearch === true]);
 
   useEffect(() => {
@@ -169,6 +173,7 @@ const BoothsContent: FC = () => {
   }, [boothSelectValue]);
 
   const onSearchInputBlur = async () => {
+    if (searchInput === '') return;
     try {
       await addDoc(collection(db, 'searchWords'), {
         word: searchInput,
