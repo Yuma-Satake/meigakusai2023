@@ -37,7 +37,7 @@ export const EatTab: FC = () => {
     >
       <Stack spacing={3} sx={{ mt: 2, mb: 5 }}>
         <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-          名学祭ではチャレンジングロッドに
+          名学祭ではチャレンジングロットに
           <br />
           20店舗の飲食店が展開！
         </Typography>
