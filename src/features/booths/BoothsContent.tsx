@@ -50,7 +50,7 @@ export const filterCheckBoxList: FilterCheckBoxType[] = [
   },
   {
     key: 'challenge',
-    label: 'チャレンジングロッド',
+    label: 'チャレンジングロット',
   },
 ];
 
@@ -96,8 +96,6 @@ const BoothsContent: FC = () => {
       .slice(0, 4);
 
     const newItem = sortedList.map((item) => item[0]);
-
-    console.log(newItem);
 
     return newItem;
   };

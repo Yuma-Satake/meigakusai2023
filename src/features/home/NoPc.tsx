@@ -18,10 +18,8 @@ export const NoPc: FC = () => {
       <img
         src="./header-logo.png"
         alt="名学祭2023"
-        width={100}
-        height={45}
         style={{
-          width: '20vw',
+          width: '30vw',
           height: 'auto',
         }}
       />
@@ -34,8 +32,8 @@ export const NoPc: FC = () => {
         src={qrSrc}
         alt="スマホでサイトを読み込むためのQRコード"
         style={{
-          width: '30vh',
-          height: '30vh',
+          width: '30vw',
+          height: 'auto',
         }}
       />
     </Stack>

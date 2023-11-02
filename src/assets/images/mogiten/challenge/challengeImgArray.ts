@@ -3,7 +3,7 @@ import { ImgItemType } from '@/types/ImgItemType';
 export const challengeImgArray: ImgItemType[] = [
   { src: '01_ct3b.jpg', alt: '◯ちゃん製麺やきそば焼きそば' },
   { src: '02_ct1b.jpg', alt: '高山製麺うどん' },
-  { src: '03_ct2a.jpg', alt: 'おくちゃんのポップコーン' },
+  { src: '03_ct2a.jpg', alt: 'おくちゃんのポップコーン奥ちゃん奥田悟' },
   { src: '04_cs2.jpg', alt: '完璧で究極のカレーうどん' },
   { src: '05_cs1.jpg', alt: 'C1が弾くポップコーン' },
   { src: '06_ai1.jpg', alt: '安藤食事店フライドポテト唐揚げチュロス揚げたこ焼き' },
