@@ -38,7 +38,7 @@ export const TopDayContent: FC = () => {
     // 開催中
     if (
       newDay.isAfter(EVENT_DAY_INFO[0].day) &&
-      newDay.isBefore(EVENT_DAY_INFO[EVENT_DAY_INFO.length - 1].day)
+      newDay.isBefore(dayjs(EVENT_DAY_INFO[EVENT_DAY_INFO.length - 1].day).add(1, 'day'))
     ) {
       setNowEventDay(NowEventDayEnum.IS_EVENT_DAYS);
       return;
