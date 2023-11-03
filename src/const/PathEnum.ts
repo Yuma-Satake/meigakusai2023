@@ -3,4 +3,5 @@ export enum PathEnum {
   EVENTS = '/events',
   BOOTH = '/booths',
   ACCESS = '/access',
+  RANKING = '/ranking',
 }

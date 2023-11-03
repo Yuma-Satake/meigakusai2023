@@ -1,6 +1,6 @@
 # 名学祭 2023 サイトリポジトリ
 
-### 公開 URL はこちら 👉 https://www.denpa.ac.jp/meigakusai/
+### 公開 URL はこちら 👉 https://meigakusai2023.web.app
 
 （更新によって新サイトになっている恐れがあります）
 

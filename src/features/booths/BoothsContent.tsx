@@ -23,6 +23,9 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { addDoc, collection, getDocs, query } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import { IS_USE_FIREBASE } from '@/const/env';
+import { useRouter } from 'next/router';
+import { PathEnum } from '@/const/PathEnum';
+import { SECRET_WORD } from '@/const/AdminPass';
 
 const useImgInitial = {
   goukan1: goukan1ImgArray,
@@ -58,6 +61,7 @@ export const filterCheckBoxList: FilterCheckBoxType[] = [
 const initialSearchWordChip = ['ボードゲーム', 'うどん', 'ゲーム', 'メイド'];
 
 const BoothsContent: FC = () => {
+  const router = useRouter();
   const { imgItemArray, filterProperty, filter, wordFilter } = useImg(useImgInitial);
   const [isAllChecked, setIsAllChecked] = useState<boolean>(true);
   const boothSelectValue = useRecoilValue(boothSelectState);
@@ -147,6 +151,9 @@ const BoothsContent: FC = () => {
 
   // searchInputが変更されたら絞り込みを行う
   useEffect(() => {
+    if (searchInput === SECRET_WORD) {
+      router.push(PathEnum.RANKING);
+    }
     wordFilter(searchInput);
   }, [searchInput]);
 
@@ -306,9 +313,9 @@ const BoothsContent: FC = () => {
         </Typography>
         <Grid container>
           {imgItemArray.length > 0 ? (
-            imgItemArray.map((item, index) => {
+            imgItemArray.map((item) => {
               return (
-                <Grid key={item.alt + index} item xs={6} sx={{ p: 1 }}>
+                <Grid key={item.alt} item xs={6} sx={{ p: 1 }}>
                   <img
                     src={item.src}
                     alt={item.alt}

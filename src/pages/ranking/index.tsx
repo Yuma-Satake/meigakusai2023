@@ -1,10 +1,9 @@
 import { Layout } from '@/components/layout/Layout';
+import { ADMIN_PASS } from '@/const/AdminPass';
 import { db } from '@/lib/firebase';
 import { Stack, TextField, Typography } from '@mui/material';
 import { collection, getDocs, query } from 'firebase/firestore';
 import { FC, useEffect, useState } from 'react';
-
-const pass = 'satake';
 
 const EventsPage: FC = () => {
   const [passText, setPassText] = useState<string>('');
@@ -54,8 +53,8 @@ const EventsPage: FC = () => {
   const handleChangeText = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     setPassText(newValue);
-    if (newValue.length === pass.length) {
-      if (newValue.includes(pass)) {
+    if (newValue.length === ADMIN_PASS.length) {
+      if (newValue.includes(ADMIN_PASS)) {
         setIsPassOk(true);
       }
     }
@@ -66,17 +65,21 @@ const EventsPage: FC = () => {
       <Stack sx={{ p: 5 }}>
         {isPassOk ? (
           <Stack>
-            {rankingList.map((item, index) => (
-              <div key={item.label}>
-                <Stack direction="row">
-                  <Typography sx={{ width: '2em', textAlign: 'right' }}> {index + 1}</Typography>
-                  位：
-                  <Typography sx={{ width: '2em', textAlign: 'right' }}>{item.count}</Typography>
-                  回：
-                  {item.label}
-                </Stack>
-              </div>
-            ))}
+            {rankingList && rankingList.length > 0
+              ? rankingList.map((item, index) => (
+                  <div key={item.label}>
+                    <Stack direction="row">
+                      <Typography sx={{ width: '2em', textAlign: 'right' }}>{index + 1}</Typography>
+                      位：
+                      <Typography sx={{ width: '2em', textAlign: 'right' }}>
+                        {item.count}
+                      </Typography>
+                      回：
+                      {item.label}
+                    </Stack>
+                  </div>
+                ))
+              : null}
           </Stack>
         ) : (
           <TextField value={passText} onChange={handleChangeText} label="pass" />
