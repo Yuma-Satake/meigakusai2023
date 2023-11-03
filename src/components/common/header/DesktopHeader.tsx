@@ -45,7 +45,15 @@ export const DesktopHeader: FC = () => {
         p: 2,
       }}
     >
-      <AppBar sx={{ height: '65px', p: 0.5, px: 1, bgcolor: 'white', opacity: 0.85 }}>
+      <AppBar
+        sx={{
+          height: '65px',
+          p: 0.5,
+          px: 1,
+          bgcolor: 'white',
+          opacity: 0.85,
+        }}
+      >
         <Stack direction="row" justifyContent="space-between" alignItems="center">
           <Button
             onClick={() => {
