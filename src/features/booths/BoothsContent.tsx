@@ -22,6 +22,7 @@ import { FilterButtonGroup } from '../FilterButtonGroup';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { addDoc, collection, getDocs, query } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
+import { IS_USE_FIREBASE } from '@/const/env';
 
 const useImgInitial = {
   goukan1: goukan1ImgArray,
@@ -101,6 +102,7 @@ const BoothsContent: FC = () => {
   };
 
   useEffect(() => {
+    if (!IS_USE_FIREBASE) return;
     try {
       (async () => {
         const q = query(collection(db, 'searchWords'));

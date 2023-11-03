@@ -32,7 +32,7 @@ export const TopDayContent: FC = () => {
       newDay.isSame(dayjs(EVENT_DAY_INFO[0].day), 'day') &&
       newDay.isBefore(EVENT_DAY_INFO[0].startTime)
     ) {
-      setNowEventDay(NowEventDayEnum.IS_TODAY);
+      setNowEventDay(NowEventDayEnum.IS_FIRST_DAY);
       return;
     }
     // 開催中
@@ -40,7 +40,7 @@ export const TopDayContent: FC = () => {
       newDay.isAfter(EVENT_DAY_INFO[0].day) &&
       newDay.isBefore(EVENT_DAY_INFO[EVENT_DAY_INFO.length - 1].day)
     ) {
-      setNowEventDay(NowEventDayEnum.IS_NOW);
+      setNowEventDay(NowEventDayEnum.IS_EVENT_DAYS);
       return;
     }
     // 終了後
@@ -87,7 +87,7 @@ export const TopDayContent: FC = () => {
                   </Stack>
                 </>
               );
-            case NowEventDayEnum.IS_TODAY:
+            case NowEventDayEnum.IS_FIRST_DAY:
               return (
                 <>
                   <Typography variant="h6">ー 名学祭開催まで ー</Typography>
@@ -101,7 +101,7 @@ export const TopDayContent: FC = () => {
                   </Stack>
                 </>
               );
-            case NowEventDayEnum.IS_NOW:
+            case NowEventDayEnum.IS_EVENT_DAYS:
               const dayNum = nowTime.diff(EVENT_DAY_INFO[0].day, 'day');
               return NowEventDayItem(dayNum);
             case NowEventDayEnum.IS_END:
