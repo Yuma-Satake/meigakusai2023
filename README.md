@@ -33,11 +33,4 @@ pnpm dev
 ```
 
 ## デプロイ
-
-（GithubActions によって、main に push すると CD が走る仕様）
-
-手動デプロイ時
-
-```zsh
-pnpm firebasedeploy
-```
+`main`へのマージでCD
